@@ -4,7 +4,7 @@ import React from 'react';
 import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 const Footer = () => {
   return (
-  <footer className="bg-gradient-to-r from-green-100 to-green-100 text-black">
+  <footer className="bg-gradient-to-r from-amber-100 to-amber-100 text-black">
   <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
     {/* Brand */}
@@ -49,7 +49,7 @@ const Footer = () => {
         <a href="#" aria-label="YouTube" className="hover:text-red-400">
           <FaYoutube />
         </a>
-        <a href="#" aria-label="WhatsApp" className="hover:text-green-400">
+        <a href="#" aria-label="WhatsApp" className="hover:text-amber-400">
           <FaWhatsapp />
         </a>
       </div>

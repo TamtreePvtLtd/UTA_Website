@@ -37,7 +37,7 @@ const HistoryPage = () => {
           </p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8"> 
           <div className="bg-white rounded-2xl shadow hover:shadow-lg transition border border-gray-100 overflow-hidden">
-            <div className="bg-green-100 py-3 text-center">
+            <div className="bg-amber-100 py-3 text-center">
               <h3 className="text-xl font-bold text-secondary">Listen</h3>
             </div>
             <div className="p-6">
@@ -48,7 +48,7 @@ const HistoryPage = () => {
           </div>
 
           <div className="bg-white rounded-2xl shadow hover:shadow-lg transition border border-gray-100 overflow-hidden">
-            <div className="bg-green-100 py-3 text-center">
+            <div className="bg-amber-100 py-3 text-center">
               <h3 className="text-xl font-bold text-secondary">Speak</h3>
             </div>
             <div className="p-6">
@@ -59,7 +59,7 @@ const HistoryPage = () => {
           </div>
 
           <div className="bg-white rounded-2xl shadow hover:shadow-lg transition border border-gray-100 overflow-hidden">
-            <div className="bg-green-100 py-3 text-center">
+            <div className="bg-amber-100 py-3 text-center">
               <h3 className="text-xl font-bold text-secondary">Read</h3>
             </div>
             <div className="p-6">
@@ -70,7 +70,7 @@ const HistoryPage = () => {
           </div>
 
           <div className="bg-white rounded-2xl shadow hover:shadow-lg transition border border-gray-100 overflow-hidden">
-            <div className="bg-green-100 py-3 text-center">
+            <div className="bg-amber-100 py-3 text-center">
               <h3 className="text-xl font-bold text-secondary">Write</h3>
             </div>
             <div className="p-6">
@@ -91,7 +91,7 @@ const HistoryPage = () => {
         <div className="max-w-5xl mx-auto space-y-12">
 
           {/* Content Blocks */}
-          <div className="bg-green-50 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
+          <div className="bg-amber-50 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
             <h3 className="text-xl font-semibold mb-3 text-secondary">From Small Steps to Big Dreams</h3>
             <p className="text-black leading-relaxed">
               What started as a few parents wanting their children to learn Tamil 
@@ -100,7 +100,7 @@ const HistoryPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-100 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
+          <div className="bg-amber-100 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
             <h3 className="text-xl font-semibold mb-3 text-secondary">Online Classes that Feel Like Home</h3>
             <p className="text-black leading-relaxed">
               With songs, storytelling, games, and interactive conversations, our online classes 
@@ -109,7 +109,7 @@ const HistoryPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
+          <div className="bg-amber-50 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
             <h3 className="text-xl font-semibold mb-3 text-secondary">Building Confidence & Connection</h3>
             <p className="text-black leading-relaxed">
               From the very first words to reading stories and writing essays, 
@@ -118,7 +118,7 @@ const HistoryPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-100 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
+          <div className="bg-amber-100 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
             <h3 className="text-xl font-semibold mb-3 text-secondary">Celebrating Tamil Beyond the Classroom</h3>
             <p className="text-black leading-relaxed">
               At UTA, Tamil is not just taught – it is lived. 
@@ -127,7 +127,7 @@ const HistoryPage = () => {
             </p>
           </div>
 
-          <div className="bg-green-50 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
+          <div className="bg-amber-50 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
             <h3 className="text-xl font-semibold mb-3 text-secondary">Looking Ahead</h3>
             <p className="text-black leading-relaxed">
               The journey has just begun. With innovative tools, passionate teachers, and 

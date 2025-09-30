@@ -27,7 +27,7 @@ const LandingPage = () => {
       {/* Header Section */}
       <header className="relative w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[85vh] min-h-[250px] overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/utatamil1.png" alt="Banner Image" fill className="object-cover" priority sizes="100vw"/>
+          <Image src="/utatamil.png" alt="Banner Image" fill className="object-cover" priority sizes="100vw"/>
         </div>
       </header>
 
@@ -46,7 +46,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-4 py-2 rounded-full text-sm md:text-base font-bold transition-colors ${activeTab === tab.id 
                   ? 'bg-primary text-white' 
-                  : 'bg-green-100 text-secondary hover:bg-green-200'
+                  : 'bg-amber-100 text-secondary hover:bg-amber-200'
                 }`}
               >
                 <span className="block text-xl">{tab.label}</span>
@@ -92,7 +92,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="bg-green-50 p-6 rounded-lg mb-12">
+            <div className="bg-amber-50 p-6 rounded-lg mb-12">
               <h3 className="text-3xl font-bold text-secondary mb-4 ">Tamil Literature</h3>
               <p className="text-black text-lg mb-4">
                 Tamil literature is broadly categorized into Sangam literature, devotional literature, and modern literature. 
@@ -203,7 +203,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="bg-green-50 p-6 rounded-lg mb-12">
+            <div className="bg-amber-50 p-6 rounded-lg mb-12">
               <h3 className="text-3xl font-bold text-secondary mb-4 ">Food and Nutrition</h3>
               <p className="text-black text-lg mb-4">
                 Traditional Tamil cuisine is not only delicious but also nutritionally balanced, designed to promote health and prevent disease. 
@@ -298,25 +298,25 @@ const LandingPage = () => {
                 level: 'Basic',
                 description: 'For absolute beginners with no prior knowledge of Tamil',
                 features: ['Alphabet & sounds', 'Basic greetings', 'Simple sentences', 'Everyday vocabulary'],
-                color: 'from-green-50 to-green-50'
+                color: 'from-amber-50 to-amber-50'
               },
               {
                 level: 'Intermediate', 
                 description: 'For those with basic knowledge wanting to improve',
                 features: ['Grammar fundamentals', 'Conversational skills', 'Reading practice', 'Writing exercises'],
-                color: 'from-green-50 to-green-50'
+                color: 'from-amber-50 to-amber-50'
               },
               {
                 level: 'Advanced',
                 description: 'For fluent speakers wanting to master the language',
                 features: ['Complex grammar', 'Literary Tamil', 'Debating skills', 'Professional vocabulary'],
-                color: 'from-green-50 to-green-50'
+                color: 'from-amber-50 to-amber-50'
               },
               {
                 level: 'Customized',
                 description: 'Tailored to your specific needs and goals',
                 features: ['Personalized curriculum', 'Specialized vocabulary', 'Flexible scheduling', 'One-on-one attention'],
-                color: 'from-green-50 to-green-50'
+                color: 'from-amber-50 to-amber-50'
               }
             ].map((course, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
@@ -332,7 +332,7 @@ const LandingPage = () => {
                   </ul>
                   <div className="flex justify-center">
                   <button onClick={goToPlans}
-                    className="mt-4 bg-primary text-white text-lg px-14 py-2 rounded-full hover:bg-green-600 transition" >
+                    className="mt-4 bg-primary text-white text-lg px-14 py-2 rounded-full hover:bg-amber-600 transition" >
                     Learn More
                   </button></div>
                 </div>
@@ -381,7 +381,7 @@ const LandingPage = () => {
         </section>
   
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-green-50 to-green-50 text-black p-8 rounded-2xl text-center">
+        <section className="bg-gradient-to-r from-amber-50 to-amber-50 text-black p-8 rounded-2xl text-center">
           <h2 className="text-3xl font-bold mb-4 ">Start Learning Tamil Today!</h2>
           <p className="text-xl mb-6 max-w-2xl mx-auto">Join thousands of students who have successfully learned Tamil with our proven methods</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

@@ -114,7 +114,7 @@ const Plans = () => {
               <ul className="text-md text-black space-y-2 mb-4">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-green-600 mr-2">✔</span>
+                    <span className="text-amber-600 mr-2">✔</span>
                     {feature}
                   </li>
                 ))}
@@ -135,7 +135,7 @@ const Plans = () => {
               </p>
               )}
               <Link href="/register">
-                <button className="w-full bg-primary hover:bg-green-500 text-white py-2 rounded transition">
+                <button className="w-full bg-primary hover:bg-amber-500 text-white py-2 rounded transition">
                   {plan.value === "freeTrial" ? "Start Free Trial" : "Get Started"}
                 </button>
               </Link>
