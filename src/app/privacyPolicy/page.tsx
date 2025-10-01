@@ -24,14 +24,15 @@ const PrivacyPolicyPage = () => {
       <section className="flex-grow px-6 py-12 max-w-5xl mx-auto text-gray-800">
         <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
         <p className="mb-6">
-          Welcome to our Universal Tamil Academy platform. Your privacy is very important to us. This Privacy Policy explains how we
-          collect, use, share, and protect your personal data when you visit or use our website and related services.
+          Welcome to Universal Tamil Academy. This Privacy Policy along with our Terms of Use describes our practices regarding how we collect, store, use, share, and secure your Personal Information. It also describes your choices regarding use, access, and correction of your Personal Information and your rights in relation to your Personal Information.
+        </p>
+        <p className="mb-6">
+          By providing your consent to this Privacy Policy and using our services, you agree to the collection, use, and transfer of your Personal Information as set out in this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not use/access our website.
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-2">1. What is a Privacy Policy?</h2>
         <p className="mb-4">
-          A Privacy Policy outlines how we collect, use, and protect your personal information. It ensures transparency and compliance
-          with regulations like GDPR, Indian IT Act, and others.
+          A Privacy Policy outlines how we collect, use, and protect your personal information. This Privacy Policy is compliant with major privacy regulations including GDPR, CCPA, and the Indian Information Technology Act.
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-2">2. Why Do We Have This Policy?</h2>
@@ -50,64 +51,73 @@ const PrivacyPolicyPage = () => {
           <li>Payment Info: Card Details, Address, E-mail ID, Transaction ID</li>
         </ul>
 
-        <h2 className="text-xl font-semibold mt-8 mb-2">4. How We Collect Data</h2>
+        <h2 className="text-xl font-semibold mt-8 mb-2">4. How We Use Your Data</h2>
         <ul className="list-disc list-inside mb-4 space-y-1">
-          <li>Direct input during registration, class booking, etc.</li>
-          <li>Automatically via cookies and analytics</li>
-          <li>From third parties (e.g., payment processors, analytics)</li>
+          <li>Communicate through E-mail, WhatsApp, or SMS</li>
+          <li>Provide, analyze, administer, and improve our services</li>
+          <li>Provide customer service and support</li>
+          <li>Detect and prevent fraudulent or illegal activities</li>
         </ul>
 
-        <h2 className="text-xl font-semibold mt-8 mb-2">5. How We Use Your Data</h2>
-        <ul className="list-disc list-inside mb-4 space-y-1">
-          <li>To register and manage accounts</li>
-          <li>To schedule classes and track progress</li>
-          <li>To communicate through E-mail, WhatsApp, or SMS</li>
-          <li>To improve our services and personalize experiences</li>
-          <li>To send updates and notifications</li>
+         <h2 className="text-xl font-semibold mt-8 mb-3">5. Information Sharing and Disclosure</h2>
+        <p className="mb-3">We do not sell your personal information. We may share information with:</p>
+        <ul className="list-disc list-inside mb-4 space-y-2">
+          <li><strong>Teachers and Staff:</strong> For scheduling classes, tracking progress, and providing educational services</li>
+          <li><strong>Service Providers:</strong> Payment processors, hosting providers, analytics services, and communication platforms</li>
+          <li><strong>Legal Requirements:</strong> When required by law, or legal process</li>
         </ul>
+        <div className="mb-4">
+          <p className="text-sm"><strong>Note:</strong> All payment transactions are processed through secure payment gateway providers. We do not store complete card information - only the last 4 digits for verification purposes.</p>
+        </div>
 
-        <h2 className="text-xl font-semibold mt-8 mb-2">6. Sharing of Data</h2>
-        <p className="mb-4">We do not sell personal data. We may share it with:</p>
-        <ul className="list-disc list-inside mb-4 space-y-1">
-          <li>Teachers and internal team for scheduling and tracking</li>
-          <li>Service providers like hosting, email, payment systems</li>
-          <li>Legal authorities, if required</li>
+        <h2 className="text-xl font-semibold mt-8 mb-3">6. Data Security</h2>
+        <p className="mb-3">We implement appropriate technical and administrative security measures including:</p>
+        <ul className="list-disc list-inside mb-4 space-y-2">
+          <li>SSL encryption for data transmission</li>
+          <li>Firewalls and data encryption</li>
+          <li>Physical access controls to our data centers</li>
+          <li>Information access authorization controls</li>
+          <li>Regular security assessments and updates</li>
+          <li>Password encryption using advanced hashing algorithms</li>
         </ul>
+        <p className="text-sm text-gray-600">While we implement robust security measures, no method of transmission over the Internet is 100% secure. We continuously work to enhance our security practices.</p>
 
-        <h2 className="text-xl font-semibold mt-8 mb-2">7. Children Privacy</h2>
-        <p className="mb-4">
-          We comply with COPPA and do not collect data from children under 13 without parental consent. Parents may review
-          their child data.
-        </p>
+        <h2 className="text-xl font-semibold mt-8 mb-3">7. Children's Privacy</h2>
+          <p className="mb-3">We comply with COPPA and other children's privacy regulations:</p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>We do not knowingly collect personal information from children under 13 without parental consent</li>
+            <li>We collect only necessary information for educational purposes</li>
+            <li>Parents can contact us to refuse further collection or use of their child's information</li>
+          </ul>
 
-        <h2 className="text-xl font-semibold mt-8 mb-2">8. Security Measures</h2>
-        <ul className="list-disc list-inside mb-4 space-y-1">
-          <li>Encrypted passwords and HTTPS connections</li>
-          <li>Role-based access control</li>
-          <li>Regular backups and firewall protection</li>
+        <h2 className="text-xl font-semibold mt-8 mb-2">8. User Rights</h2>
+        <ul className="list-disc list-inside space-y-2">
+          <li>Access and review your personal information</li>
+          <li>Request deletion of your personal information</li>
+          <li>Withdraw consent for data processing</li>
+          <li>Request data portability</li>
         </ul>
-
-        <h2 className="text-xl font-semibold mt-8 mb-2">9. User Rights</h2>
-        <ul className="list-disc list-inside mb-4 space-y-1">
-          <li>Access and correct personal data</li>
-          <li>Delete your account</li>
-          <li>Withdraw consent</li>
-          <li>Request data export</li>
-        </ul>
-        <p className="mb-4">
+        <p className="mb-4 mt-4">
           To exercise your rights, contact us at <strong>universaltamilacademy@gmail.com</strong>.
         </p>
 
-        <h2 className="text-xl font-semibold mt-8 mb-2">10. Cookies and Tracking</h2>
+        <h2 className="text-xl font-semibold mt-8 mb-2">9. Account Deletion Request</h2>
         <p className="mb-4">
-          We use cookies and similar technologies for site analytics, user personalization, and targeted advertising. Your IP, location,
-          and browser data may be collected for these purposes.
+          To request the deletion of your account, please send an email to universaltamilacademy@gmail.com with the subject line "Account Deletion Request" and include your registered email address and any relevant details. Our team will process your request and take the necessary actions promptly.
         </p>
 
+        <h2 className="text-xl font-semibold mt-8 mb-2">10. Cookies and Tracking</h2>
+        <p className="mb-2">We use cookies and similar technologies for:</p>
+        <ul className="list-disc list-inside mb-4 space-y-2">
+          <li>Authentication and security</li>
+          <li>Personalizing your experience</li>
+          <li>Analyzing site traffic and usage patterns</li>
+          <li>Remembering your preferences and settings</li>
+          <li>Providing relevant content and advertisements</li>
+        </ul>
+
         <h2 className="text-xl font-semibold mt-8 mb-2">11. Updates to This Policy</h2>
-        <p className="mb-4">
-          We may update this Privacy Policy. Any changes will be posted here with an updated date. We recommend checking periodically.
-        </p>
+        <p className="mb-4">We may update this Privacy Policy periodically. We will notify registered users of significant changes and update the "last updated" date. Continued use of our services after changes constitutes acceptance of the revised policy.</p>
 
         <h2 className="text-xl font-semibold mt-8 mb-2">12. Copyright</h2>
         <p className="mb-4">

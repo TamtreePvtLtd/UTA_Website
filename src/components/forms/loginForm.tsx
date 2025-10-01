@@ -58,7 +58,7 @@ export default function Login() {
       {/* Left Image Section */}
       <div className="w-full md:w-[70%] h-[300px] md:h-auto relative">
         <Image
-          src="/utalogin.webp"
+          src="/login.png"
           alt="Login Visual"
           fill
           className="object-cover"

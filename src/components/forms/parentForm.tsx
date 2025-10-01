@@ -489,7 +489,7 @@ const ParentRegisterForm = () => {
     <div className="flex flex-col md:flex-row flex-1">
       {/* Left: Image */}
       <div className="w-full md:w-[70%] h-[250px] md:h-auto relative">
-        <Image src="/utaregister.webp" alt="Register Visual" fill className="object-cover" />
+        <Image src="/register.png" alt="Register Visual" fill className="object-cover" />
       </div>
       
       {/* Right: Form */}
