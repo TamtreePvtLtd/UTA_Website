@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Table from '@/components/Table';
 import Pagination from '@/components/pagination';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 interface Student {
   _id: string;
@@ -41,10 +42,10 @@ export default function GenerateInvoice() {
         `${student.name} ${student.surname}`.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredStudents(filtered);
+      setCurrentPage(1);
     } else {
       setFilteredStudents(students);
     }
-    setCurrentPage(1);
   }, [searchTerm, students]);
 
   const totalPages = Math.ceil(filteredStudents.length / rowsPerPage);
@@ -88,8 +89,11 @@ export default function GenerateInvoice() {
       if (!response.ok) {
         throw new Error('Failed to update student');
       }
-      // Refresh the student list to get updated data
-      await fetchStudents();
+      // Update state locally instead of resetting everything
+      setStudents(prev =>
+      prev.map(s => (s._id === student._id ? student : s))
+    );
+    toast.success("Student updated successfully");
     } catch (error) {
       console.error('Error saving student:', error);
       setError('Failed to save student changes. Please try again.');

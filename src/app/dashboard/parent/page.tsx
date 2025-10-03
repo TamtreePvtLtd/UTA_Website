@@ -116,9 +116,10 @@ useEffect(() => {
 
       // --- Update enrollmentCategory based on payment history ---
       for (const student of studentList) {
-        if (student.paymentHistory && student.paymentHistory.length > 0) {
-          // Has payments → should be "statusCheck"
-          if (student.enrollmentCategory !== "statusCheck") {
+        const hasPayments = student.paymentHistory && student.paymentHistory.length > 0;
+
+        if (hasPayments && student.enrollmentCategory === "initialCall") {
+          // Only update if both conditions match
             await fetch(`/api/student/${student._id}`, {
               method: "PUT",
               headers: {
@@ -128,7 +129,6 @@ useEffect(() => {
                 enrollmentCategory: "statusCheck",
               }),
             });
-          }
         } else {
           // No payments → keep as "initialCall"
           if (student.enrollmentCategory !== "initialCall") {
