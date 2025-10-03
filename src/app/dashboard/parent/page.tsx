@@ -198,7 +198,7 @@ useEffect(() => {
       )}
 
       {/* Banner */}
-      <section className="bg-gradient-to-r from-sand to-sand text-black py-10 px-6 text-center">
+      <section className="bg-gradient-to-r from-amber-100 to-amber-100 text-black py-8 px-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Parent Dashboard</h1>
       </section>
 
@@ -247,7 +247,7 @@ useEffect(() => {
                 </p>
                 <button
                   onClick={handleSubscription}
-                  className="w-full bg-primary hover:bg-amber-500 text-white py-2 rounded transition"
+                  className="w-full bg-primary hover:bg-amber-600 text-white py-2 rounded transition"
                 >
                   {plan.value === "freeTrial" ? "Start Free Trial" : "Get Started"}
                 </button>

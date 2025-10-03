@@ -310,7 +310,7 @@ export async function POST(req: NextRequest) {
       color: textColor,
     });
     
-    page.drawText(`Grade: ${(student as any).tamilGrade || "Basic"}`, {
+    page.drawText(`Selected Plan: ${(student as any).selectedPlan || "Basic"}`, {
       x: 50,
       y: studentDetailsY - 50,
       size: 11,

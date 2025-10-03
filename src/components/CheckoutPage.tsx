@@ -483,7 +483,7 @@ const CheckoutPage = ({ amount, studentId }: { amount: number; studentId: string
       {/* Submit */}
       <button
         disabled={!stripe || loading}
-        className="text-white w-full p-4 bg-primary rounded-md font-bold disabled:opacity-50 hover:bg-secondary transition"
+        className="text-white w-full p-4 bg-primary rounded-md font-bold disabled:opacity-50 hover:bg-transparent border border-primary hover:text-primary transition"
       >
         {!loading ? `Pay $${amount.toFixed(2)}` : "Processing..."}
       </button>

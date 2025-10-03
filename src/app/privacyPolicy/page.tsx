@@ -125,13 +125,13 @@ const PrivacyPolicyPage = () => {
           copy without permission.
         </p>
 
-        <h2 className="text-xl font-semibold mt-8 mb-2">13. Contact Us</h2>
-        <p className="mb-4">
-          If you have any questions or requests about this Privacy Policy:
-          <br />📧 E-mail: universaltamilacademy@gmail.com
-          <br />📞 Phone: +91 99999 99999
-          <br />🌐 Website: www.universaltamilacademy.com
-        </p>
+        <h2 className="text-xl font-semibold mt-8 mb-2">13. Contact Information</h2>
+        <div>
+          <p className="mb-2">If you have any questions or requests about this Privacy Policy:</p>
+          <p className="mb-1">📧 Email: universaltamilacademy@gmail.com</p>
+          <p className="mb-1">📞 Phone: +91 99999 99999</p>
+          <p className="mb-1">🌐 Website: www.universaltamilacademy.com</p>
+        </div>
       </section>
 
       <Footer />

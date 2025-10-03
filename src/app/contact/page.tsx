@@ -29,14 +29,14 @@ const ContactPage = () => {
       const data = await res.json();
 
       if (res.ok) {
-        setResponseMsg('✅ Message sent successfully!');
+        setResponseMsg('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' }); 
       } else {
-        setResponseMsg(`❌ ${data.error || 'Failed to send message.'}`);
+        setResponseMsg(`${data.error || 'Failed to send message.'}`);
       }
     } catch (error) {
       console.error('Form error:', error);
-      setResponseMsg('❌ Something went wrong. Please try again.');
+      setResponseMsg('Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -70,9 +70,7 @@ const ContactPage = () => {
             </p>
             <ul className="space-y-2">
               <li>📧 <strong>Email:</strong>{' '}
-                <a href="" className="text-blue-600 underline">
                   universaltamilacademy@gmail.com
-                </a>
               </li>
               <li>📞 <strong>Phone:</strong> +91 99999 99999</li>
               <li>🌐 <strong>Website:</strong>{' '}
@@ -119,7 +117,7 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-primary text-white px-6 py-2 rounded-md hover:bg-secondary transition duration-200 disabled:opacity-60"
+                className="w-full py-3 font-semibold text-xl text-white bg-primary hover:bg-transparent border border-primary rounded-md hover:text-primary transition"
               >
                 {loading ? 'Sending...' : 'Submit'}
               </button>

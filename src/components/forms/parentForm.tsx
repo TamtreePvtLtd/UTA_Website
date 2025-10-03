@@ -488,12 +488,35 @@ const ParentRegisterForm = () => {
       <NavDropdown />
     <div className="flex flex-col md:flex-row flex-1">
       {/* Left: Image */}
-      <div className="w-full md:w-[70%] h-[250px] md:h-auto relative">
-        <Image src="/register.png" alt="Register Visual" fill className="object-cover" />
-      </div>
+      <div className="relative w-full md:w-[60%] bg-gradient-to-br from-white to-white text-black flex flex-col justify-center px-10 py-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Join Universal Tamil Academy
+          </h1>
+          <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-lg">
+            Create your parent account and connect your children with world-class
+            Tamil teachers. Be part of our global mission to preserve and spread
+            Tamil language and culture.
+          </p>
+
+          <div className="space-y-4">
+            <p className="flex items-center text-lg">
+              <span className="mr-2">✔</span> Easy parent registration
+            </p>
+            <p className="flex items-center text-lg">
+              <span className="mr-2">✔</span> Add and manage your children
+            </p>
+            <p className="flex items-center text-lg">
+              <span className="mr-2">✔</span> Access free trial classes
+            </p>
+          </div>
+
+          {/* <div className="mt-10 text-sm italic text-white/90">
+            “உலகம் முழுவதும் தமிழ் கற்க – Universal Tamil Academy”
+          </div> */}
+        </div>
       
       {/* Right: Form */}
-      <div className="w-full md:w-[30%] flex flex-col justify-center px-6 py-10">
+      <div className="w-full md:w-[40%] flex flex-col justify-center px-6 py-10 bg-white">
         <div className="max-w-md w-full mx-auto space-y-8">
           {errors.general && (
             <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
@@ -632,7 +655,7 @@ const ParentRegisterForm = () => {
               <button 
                 type="submit" 
                 disabled={isValidating}
-                className={`w-full py-3 font-semibold text-md text-white rounded-md transition ${
+                className={`w-full py-3 font-semibold text-lg text-white rounded-md transition ${
                   isValidating 
                     ? 'bg-primary hover:bg-transparent border border-primary hover:text-primary cursor-not-allowed' 
                     : 'bg-primary hover:bg-transparent border border-primary hover:text-primary'

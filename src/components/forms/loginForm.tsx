@@ -53,20 +53,40 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col">
-        <NavDropdown />
-      <div className="flex flex-col md:flex-row flex-1">
-      {/* Left Image Section */}
-      <div className="w-full md:w-[70%] h-[300px] md:h-auto relative">
-        <Image
-          src="/login.png"
-          alt="Login Visual"
-          fill
-          className="object-cover"
-        />
-      </div>
+      <NavDropdown />
 
-      {/* Right Form Section */}
-      <div className="w-full md:w-[30%] flex flex-col justify-center px-8 py-12">
+      <div className="flex flex-col md:flex-row flex-1">
+        {/* Left Content Section (60%) */}
+        <div className="relative w-full md:w-[60%] bg-gradient-to-br from-white to-white text-black flex flex-col justify-center px-10 py-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Welcome to Universal Tamil Academy
+          </h1>
+          <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-lg">
+            Spreading Tamil across the globe with expert teachers, engaging
+            online classes, and a mission to preserve and celebrate our rich
+            language and culture.
+          </p>
+
+          {/* Feature Highlights */}
+          <div className="space-y-4">
+            <p className="flex items-center text-lg">
+              <span className="mr-2">✔</span> Learn from Global Tamil Teachers
+            </p>
+            <p className="flex items-center text-lg">
+              <span className="mr-2">✔</span> Interactive Online Sessions
+            </p>
+            <p className="flex items-center text-lg">
+              <span className="mr-2">✔</span> Flexible Schedules for Students
+            </p>
+          </div>
+
+          {/* <div className="mt-10 text-sm italic text-white/90">
+            “அறிவுக்கு அறம் சேர்க்கும் இடம் – Universal Tamil Academy”
+          </div> */}
+        </div>
+
+        {/* Right Form Section (40%) */}
+        <div className="w-full md:w-[40%] flex flex-col justify-center px-8 py-12 bg-white">
         <form onSubmit={handleSubmit} className="max-w-md w-full mx-auto space-y-6">
           <div className="flex flex-col space-y-4">
             {error && <p className="text-sm text-red-500">{error}</p>}
@@ -104,7 +124,7 @@ export default function Login() {
             </div>
 
             <div className="w-full">
-              <button className="w-full py-3 font-semibold text-md text-white bg-primary hover:bg-transparent border border-primary rounded-md hover:text-primary transition">
+              <button className="w-full py-3 font-semibold text-lg text-white bg-primary hover:bg-transparent border border-primary rounded-md hover:text-primary transition">
                 Login
               </button>
             </div>

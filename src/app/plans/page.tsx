@@ -135,7 +135,7 @@ const Plans = () => {
               </p>
               )}
               <Link href="/register">
-                <button className="w-full bg-primary hover:bg-amber-500 text-white py-2 rounded transition">
+                <button className="w-full bg-primary hover:bg-amber-600 text-white py-2 rounded transition">
                   {plan.value === "freeTrial" ? "Start Free Trial" : "Get Started"}
                 </button>
               </Link>
