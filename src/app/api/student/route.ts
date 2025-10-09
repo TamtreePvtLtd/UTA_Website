@@ -10,9 +10,15 @@ import os from "os";
 import fs from "fs";
 
 function getCloudinaryPublicId(url: string): string | null {
-  const regex = /\/v\d+\/(.+)\.\w+$/;
-  const match = url.match(regex);
-  return match ? match[1] : null;
+  try {
+    const parts = url.split("/");
+    const folderAndId = parts.slice(parts.indexOf("student_profiles")).join("/");
+    const publicId = folderAndId.replace(/\.[^/.]+$/, "");
+    return publicId;
+  } catch (error) {
+    console.error("Error parsing Cloudinary URL:", error);
+    return null;
+  }
 }
 
 export async function GET(req: NextRequest) {
@@ -100,23 +106,25 @@ export async function PUT(req: NextRequest) {
       if (imageUrl) {
         const publicId = getCloudinaryPublicId(imageUrl);
         if (publicId) {
-          await cloudinary.uploader.destroy(`student_profiles/${publicId}`);
+          await cloudinary.uploader.destroy(publicId);
         }
       }
+
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
       const tempPath = path.join(os.tmpdir(), file.name);
       await writeFile(tempPath, buffer);
-      const result = await cloudinary.uploader.upload(tempPath, {
+      const uploadResult = await cloudinary.uploader.upload(tempPath, {
         folder: "student_profiles",
       });
-      imageUrl = result.secure_url;
-      fs.unlinkSync(tempPath);
+
+      imageUrl = uploadResult.secure_url;
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
     } else if (!file && !formData.get("existingProfileImage")) {
       if (imageUrl) {
         const publicId = getCloudinaryPublicId(imageUrl);
         if (publicId) {
-          await cloudinary.uploader.destroy(`student_profiles/${publicId}`);
+          await cloudinary.uploader.destroy(publicId);
         }
         imageUrl = "";
       }
@@ -126,14 +134,16 @@ export async function PUT(req: NextRequest) {
       updateData.tamilGrade = tamilGrade;
     }
     const updatedStudent = await Student.findByIdAndUpdate(id, updateData, { new: true });
-    
     const oldParentId = existingStudent.parent?.toString();
     if (oldParentId !== parent) {
       if (oldParentId) {
         await Parent.findByIdAndUpdate(oldParentId, { $pull: { students: id } });
       }
-      await Parent.findByIdAndUpdate(parent, { $addToSet: { students: id } });
+      if (parent) {
+        await Parent.findByIdAndUpdate(parent, { $addToSet: { students: id } });
+      }
     }
+
     return NextResponse.json(updatedStudent);
   } catch (err) {
     console.error("Error updating student:", err);
@@ -142,26 +152,30 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  const id = req.nextUrl.searchParams.get("id");
-  if (!id) {
-    return NextResponse.json({ error: "Missing student ID" }, { status: 400 });
-  }
   try {
+    const id = req.nextUrl.searchParams.get("id");
+    if (!id) {
+      return NextResponse.json({ error: "Missing student ID" }, { status: 400 });
+    }
     await connectMongoDB();
-    const student = await Student.findByIdAndDelete(id);
+    const student = await Student.findById(id);
     if (!student) {
       return NextResponse.json({ error: "Student not found" }, { status: 404 });
     }
     if (student.profileImage) {
       const publicId = getCloudinaryPublicId(student.profileImage);
       if (publicId) {
-        await cloudinary.uploader.destroy(`student_profiles/${publicId}`);
+        await cloudinary.uploader.destroy(publicId);
       }
     }
-    await Parent.findByIdAndUpdate(student.parent, { $pull: { students: id } });
-    return NextResponse.json({ message: "Student deleted and parent updated" });
+    await Student.findByIdAndDelete(id);
+
+    if (student.parent) {
+      await Parent.findByIdAndUpdate(student.parent, { $pull: { students: id } });
+    }
+    return NextResponse.json({ message: "Student deleted successfully and parent updated", });
   } catch (err) {
-    console.error(err);
+    console.error("Error deleting student:", err);
     return NextResponse.json({ error: "Failed to delete student" }, { status: 500 });
   }
 }

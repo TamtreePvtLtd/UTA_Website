@@ -9,8 +9,13 @@ import path from "path";
 import os from "os";
 
 function getCloudinaryPublicId(url: string): string | null {
-  const match = url.match(/\/v\d+\/(.+)\.\w+$/);
-  return match ? match[1] : null;
+  try {
+    const match = url.match(/\/upload\/(?:v\d+\/)?([^?#]+)\.\w+$/);
+    return match ? match[1] : null;
+  } catch (error) {
+    console.error("Error extracting Cloudinary public_id:", error);
+    return null;
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -33,9 +38,11 @@ export async function POST(req: NextRequest) {
       const bytes = Buffer.from(await profileFile.arrayBuffer());
       const tempPath = path.join(os.tmpdir(), profileFile.name);
       await writeFile(tempPath, bytes);
-      const result = await cloudinary.uploader.upload(tempPath, { folder: "teacher_profiles" });
+      const result = await cloudinary.uploader.upload(tempPath, {
+        folder: "teacher_profiles",
+      });
       imageUrl = result.secure_url;
-      fs.unlinkSync(tempPath);
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
     }
 
     let resumeUrl = "";
@@ -48,11 +55,10 @@ export async function POST(req: NextRequest) {
         resource_type: "raw", 
       });
       resumeUrl = result.secure_url;
-      fs.unlinkSync(tempPath);
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const createdTeacher = await Teacher.create({
       ...rest,
       password: hashedPassword,
@@ -62,8 +68,10 @@ export async function POST(req: NextRequest) {
     });
 
     const populated = await Teacher.findById(createdTeacher._id).select("-password");
-
-    return NextResponse.json({ msg: "Teacher created", teacher: populated }, { status: 201 });
+    return NextResponse.json(
+      { msg: "Teacher created", teacher: populated },
+      { status: 201 }
+    );
   } catch (err) {
     console.error("Create Teacher Error:", err);
     return NextResponse.json({ msg: "Creation failed", error: err }, { status: 500 });
@@ -86,62 +94,70 @@ export async function PUT(req: NextRequest) {
     const teacher = await Teacher.findById(id);
     if (!teacher) return NextResponse.json({ msg: "Teacher not found" }, { status: 404 });
 
-    // Handle Profile Image
     let imageUrl = teacher.profileImage;
     if (profileFile && profileFile.name) {
       if (imageUrl) {
         const publicId = getCloudinaryPublicId(imageUrl);
-        if (publicId) await cloudinary.uploader.destroy(`teacher_profiles/${publicId}`);
+        if (publicId) await cloudinary.uploader.destroy(publicId);
       }
       const bytes = Buffer.from(await profileFile.arrayBuffer());
       const tempPath = path.join(os.tmpdir(), profileFile.name);
       await writeFile(tempPath, bytes);
-      const result = await cloudinary.uploader.upload(tempPath, { folder: "teacher_profiles" });
+      const result = await cloudinary.uploader.upload(tempPath, {
+        folder: "teacher_profiles",
+      });
       imageUrl = result.secure_url;
-      fs.unlinkSync(tempPath);
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
     } else if (removeImage && imageUrl) {
       const publicId = getCloudinaryPublicId(imageUrl);
-      if (publicId) await cloudinary.uploader.destroy(`teacher_profiles/${publicId}`);
+      if (publicId) await cloudinary.uploader.destroy(publicId);
       imageUrl = "";
     }
 
-    // Handle Resume
     let resumeUrl = teacher.resume;
     if (resumeFile && resumeFile.name) {
+      // Always delete old resume before uploading new
       if (resumeUrl) {
         const publicId = getCloudinaryPublicId(resumeUrl);
-        if (publicId) await cloudinary.uploader.destroy(`teacher_resumes/${publicId}`);
+        if (publicId) {
+          console.log("Deleting old resume:", publicId);
+          await cloudinary.uploader.destroy(publicId, { resource_type: "raw" });
+        }
       }
+
       const bytes = Buffer.from(await resumeFile.arrayBuffer());
       const tempPath = path.join(os.tmpdir(), resumeFile.name);
       await writeFile(tempPath, bytes);
-      const result = await cloudinary.uploader.upload(tempPath, {
+      const uploadResult = await cloudinary.uploader.upload(tempPath, {
         folder: "teacher_resumes",
         resource_type: "raw",
       });
-      resumeUrl = result.secure_url;
-      fs.unlinkSync(tempPath);
+      resumeUrl = uploadResult.secure_url;
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
     } else if (removeResume && resumeUrl) {
       const publicId = getCloudinaryPublicId(resumeUrl);
-      if (publicId) await cloudinary.uploader.destroy(`teacher_resumes/${publicId}`);
+      if (publicId)
+        await cloudinary.uploader.destroy(publicId, { resource_type: "raw" });
       resumeUrl = "";
     }
 
-    // Handle Password
     const password = rest.password?.toString();
-    if (password) {
+    if (password && password.trim() !== "") {
       rest.password = await bcrypt.hash(password, 10);
     } else {
       delete rest.password;
     }
 
-    const updated = await Teacher.findByIdAndUpdate(
+    const updatedTeacher = await Teacher.findByIdAndUpdate(
       id,
       { ...rest, profileImage: imageUrl, resume: resumeUrl },
       { new: true }
     ).select("-password");
 
-    return NextResponse.json({ msg: "Teacher updated", teacher: updated }, { status: 200 });
+    return NextResponse.json(
+      { msg: "Teacher updated successfully", teacher: updatedTeacher },
+      { status: 200 }
+    );
   } catch (err) {
     console.error("Update Teacher Error:", err);
     return NextResponse.json({ msg: "Update failed", error: err }, { status: 500 });
@@ -151,8 +167,7 @@ export async function PUT(req: NextRequest) {
 export async function GET() {
   try {
     await connectMongoDB();
-    const teachers = await Teacher.find()
-      .select("-password");
+    const teachers = await Teacher.find().select("-password");
     return NextResponse.json({ teachers }, { status: 200 });
   } catch (err) {
     console.error("Get Teachers Error:", err);
