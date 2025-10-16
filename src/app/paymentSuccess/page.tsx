@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 
@@ -23,7 +23,7 @@ export default function PaymentSuccessPage() {
   const studentId = searchParams.get("studentId");
   const amount = searchParams.get("amount");
   const transactionId = searchParams.get("transactionId");
-
+  const hasHandledPayment = useRef(false);
   const [parents, setParents] = useState<Parent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -86,7 +86,10 @@ export default function PaymentSuccessPage() {
 
   useEffect(() => {
     const handlePaymentSuccess = async () => {
-      if (!studentId) return;
+      if (hasHandledPayment.current) return;
+      hasHandledPayment.current = true;
+
+      if (!studentId || !transactionId) return;
       try {
         // Fetch parent data first
         const parentsData = await fetchParentByStudent();
@@ -131,7 +134,7 @@ export default function PaymentSuccessPage() {
     };
 
     handlePaymentSuccess();
-  }, [studentId, transactionId, update, session]);
+  }, [studentId, transactionId]);
 
   const handleDashboardRedirect = () => {
     router.push("/dashboard/parent");
