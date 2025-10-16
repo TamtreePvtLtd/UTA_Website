@@ -47,6 +47,7 @@ const StudentForm = ({ existingStudent, onClose, refreshStudents }: Props) => {
   const [removeExistingImage, setRemoveExistingImage] = useState(false);
   const [classes, setClasses] = useState<{ _id: string; name: string }[]>([]);
   const [selectedGradeId, setSelectedGradeId] = useState("");
+  
 useEffect(() => {
   const fetchClasses = async () => {
     try {

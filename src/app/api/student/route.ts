@@ -21,6 +21,105 @@ function getCloudinaryPublicId(url: string): string | null {
   }
 }
 
+export async function PUT(req: NextRequest) {
+  try {
+    await connectMongoDB();
+
+    const id = req.nextUrl.searchParams.get("id");
+    if (!id) {
+      return NextResponse.json({ error: "Missing student ID" }, { status: 400 });
+    }
+
+    let data: any = {};
+
+    // Parse JSON if sent as application/json
+    if (req.headers.get("content-type")?.includes("application/json")) {
+      data = await req.json();
+    } else {
+      // Parse formData if multipart/form-data
+      const formData = await req.formData();
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+    }
+
+    // --- Condition 1: Only update profileStatus/enrollmentCategory ---
+    if (data.profileStatus || data.enrollmentCategory) {
+      const updated = await Student.findByIdAndUpdate(
+        id,
+        {
+          ...(data.profileStatus ? { profileStatus: data.profileStatus } : {}),
+          ...(data.enrollmentCategory ? { enrollmentCategory: data.enrollmentCategory } : {}),
+        },
+        { new: true }
+      );
+      if (!updated) {
+        return NextResponse.json({ error: "Student not found" }, { status: 404 });
+      }
+      return NextResponse.json(updated);
+    }
+
+    // --- Condition 2: Full update with student details ---
+    const existingStudent = await Student.findById(id);
+    if (!existingStudent) {
+      return NextResponse.json({ error: "Student not found" }, { status: 404 });
+    }
+
+    let imageUrl = existingStudent.profileImage;
+    const file: File | null = data.profileImage || null;
+
+    // Handle profile image
+    if (file && (file as any).name) {
+      if (imageUrl) {
+        const publicId = getCloudinaryPublicId(imageUrl);
+        if (publicId) await cloudinary.uploader.destroy(publicId);
+      }
+
+      const bytes = await (file as File).arrayBuffer();
+      const buffer = Buffer.from(bytes);
+      const tempPath = path.join(os.tmpdir(), (file as File).name);
+      await writeFile(tempPath, buffer);
+      const uploadResult = await cloudinary.uploader.upload(tempPath, {
+        folder: "student_profiles",
+      });
+      imageUrl = uploadResult.secure_url;
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    } else if (!file && !data.existingProfileImage) {
+      if (imageUrl) {
+        const publicId = getCloudinaryPublicId(imageUrl);
+        if (publicId) await cloudinary.uploader.destroy(publicId);
+        imageUrl = "";
+      }
+    }
+
+    const updateData: any = {
+      name: data.name,
+      surname: data.surname,
+      email: data.email,
+      grade: data.grade,
+      sex: data.sex,
+      birthday: data.birthday,
+      parent: data.parent,
+      profileImage: imageUrl,
+    };
+    if (data.tamilGrade) updateData.tamilGrade = data.tamilGrade;
+
+    const updatedStudent = await Student.findByIdAndUpdate(id, updateData, { new: true });
+
+    // Update parent-student relationships
+    const oldParentId = existingStudent.parent?.toString();
+    if (oldParentId !== data.parent) {
+      if (oldParentId) await Parent.findByIdAndUpdate(oldParentId, { $pull: { students: id } });
+      if (data.parent) await Parent.findByIdAndUpdate(data.parent, { $addToSet: { students: id } });
+    }
+
+    return NextResponse.json(updatedStudent);
+  } catch (err) {
+    console.error("Error updating student:", err);
+    return NextResponse.json({ error: "Failed to update student" }, { status: 500 });
+  }
+}
+
 export async function GET(req: NextRequest) {
   try {
     await connectMongoDB();
@@ -76,78 +175,6 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error("Error creating student:", err);
     return NextResponse.json({ error: "Failed to create student" }, { status: 500 });
-  }
-}
-
-export async function PUT(req: NextRequest) {
-  try {
-    await connectMongoDB();
-    const id = req.nextUrl.searchParams.get("id");
-    if (!id) {
-      return NextResponse.json({ error: "Missing student ID" }, { status: 400 });
-    }
-    const formData = await req.formData();
-    const name = formData.get("name");
-    const surname = formData.get("surname");
-    const email = formData.get("email");
-    const grade = formData.get("grade");
-    const sex = formData.get("sex");
-    const birthday = formData.get("birthday");
-    const parent = formData.get("parent");
-    const tamilGrade = formData.get("tamilGrade");
-    const file: File | null = formData.get("profileImage") as File;
-    const existingStudent = await Student.findById(id);
-    if (!existingStudent) {
-      return NextResponse.json({ error: "Student not found" }, { status: 404 });
-    }
-    let imageUrl = existingStudent.profileImage;
-
-    if (file && file.name) {
-      if (imageUrl) {
-        const publicId = getCloudinaryPublicId(imageUrl);
-        if (publicId) {
-          await cloudinary.uploader.destroy(publicId);
-        }
-      }
-
-      const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
-      const tempPath = path.join(os.tmpdir(), file.name);
-      await writeFile(tempPath, buffer);
-      const uploadResult = await cloudinary.uploader.upload(tempPath, {
-        folder: "student_profiles",
-      });
-
-      imageUrl = uploadResult.secure_url;
-      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
-    } else if (!file && !formData.get("existingProfileImage")) {
-      if (imageUrl) {
-        const publicId = getCloudinaryPublicId(imageUrl);
-        if (publicId) {
-          await cloudinary.uploader.destroy(publicId);
-        }
-        imageUrl = "";
-      }
-    }
-    const updateData: any = { name, surname, email, grade, sex, birthday, parent, profileImage: imageUrl,};
-    if (tamilGrade) {
-      updateData.tamilGrade = tamilGrade;
-    }
-    const updatedStudent = await Student.findByIdAndUpdate(id, updateData, { new: true });
-    const oldParentId = existingStudent.parent?.toString();
-    if (oldParentId !== parent) {
-      if (oldParentId) {
-        await Parent.findByIdAndUpdate(oldParentId, { $pull: { students: id } });
-      }
-      if (parent) {
-        await Parent.findByIdAndUpdate(parent, { $addToSet: { students: id } });
-      }
-    }
-
-    return NextResponse.json(updatedStudent);
-  } catch (err) {
-    console.error("Error updating student:", err);
-    return NextResponse.json({ error: "Failed to update student" }, { status: 500 });
   }
 }
 

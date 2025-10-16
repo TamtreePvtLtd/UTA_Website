@@ -85,7 +85,6 @@ const ParentDashboardPage = () => {
     fetchPlans();
   }, []);
 
-  // Store parentId
   useEffect(() => {
     if (parentId) {
       sessionStorage.setItem('parentId', parentId);
@@ -120,29 +119,17 @@ useEffect(() => {
 
         if (hasPayments && student.enrollmentCategory === "initialCall") {
           // Only update if both conditions match
-            await fetch(`/api/student/${student._id}`, {
+            await fetch(`/api/student?id=${student._id}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
+                profileStatus: "enrolled",
                 enrollmentCategory: "statusCheck",
               }),
             });
-        } else {
-          // No payments → keep as "initialCall"
-          if (student.enrollmentCategory !== "initialCall") {
-            await fetch(`/api/student/${student._id}`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                enrollmentCategory: "initialCall",
-              }),
-            });
           }
-        }
       }
 
       // --- Main Logic for showing subscription ---

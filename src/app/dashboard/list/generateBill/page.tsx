@@ -76,7 +76,7 @@ export default function GenerateInvoice() {
   const saveStudentChanges = async (student: Student) => {
     setUpdating(student._id);
     try {
-      const response = await fetch(`/api/student/${student._id}`, {
+      const response = await fetch(`/api/student?id=${student._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
