@@ -114,7 +114,7 @@ const FreeTrialPage = () => {
 
   return (
     <div>
-      <section className="bg-gray-300 text-black py-10 px-6 text-center">
+      <section className="bg-gradient-to-r from-amber-100 to-amber-100 text-black py-8 px-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Parent Dashboard</h1>
       </section>
     <div className="bg-white rounded-md flex-1 m-4 mt-0 p-1 sm:p-2 md:p-3 lg:p-6 mt-4">

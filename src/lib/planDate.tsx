@@ -53,7 +53,7 @@ export function calculatePlanDates(
     planEndDate = new Date(startYear + 1, startMonth, 0, 23, 59, 59, 999);
     sessionLimit = 52 * weeklySessions;
 
-    const yearlyPrice = Number(selectedPlan.price) * 11; // 1 month free
+    const yearlyPrice = Number(selectedPlan.price) * 10; 
 
     paymentDetails = {
       yearlyPrice,

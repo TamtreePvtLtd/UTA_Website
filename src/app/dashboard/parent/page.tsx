@@ -230,7 +230,7 @@ useEffect(() => {
                 <p className="text-3xl font-bold mb-1">
                   {plan.value === "freeTrial"
                     ? "$0 / Free Trial"
-                    : `$${billingCycle === "monthly" ? plan.price : plan.price * 11} / ${billingCycle}`}
+                    : `$${billingCycle === "monthly" ? plan.price : plan.price * 10} / ${billingCycle}`}
                 </p>
                 <button
                   onClick={handleSubscription}

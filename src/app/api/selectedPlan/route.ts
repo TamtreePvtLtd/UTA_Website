@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
       // End: last day of month before same month next year
       planEndDate = new Date(today.getFullYear() + 1, today.getMonth(), 0, 23, 59, 59, 999);
       sessionLimit = 52 * weeklySessions;
-      const yearlyPrice = selectedPlan.price * 11; 
+      const yearlyPrice = selectedPlan.price * 10; 
       paymentDetails = {
         yearlyPrice,
         sessions: sessionLimit,

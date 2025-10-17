@@ -128,7 +128,7 @@ const Plans = () => {
               $
               {billingCycle === "monthly"
                 ? Number(plan.price)
-                : Number(plan.price) * 11}
+                : Number(plan.price) * 10}
               <span className="text-lg text-gray-500">
                 {" "}/ {billingCycle}
               </span>

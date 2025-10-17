@@ -159,7 +159,7 @@ const handleRemoveResume = () => {
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
-        <span className="text-xs text-gray-400 font-medium uppercase">Authentication Information</span>
+        <span className="text-md text-gray-500 font-medium uppercase">Authentication Information</span>
         <div className="flex justify-between flex-wrap gap-4">
           <InputField label="E-mail ID" name="email" type="email" defaultValue={existingTeacher?.email} />
           <InputField label="Password" name="password" type="password" defaultValue={existingTeacher?.password} 
@@ -168,7 +168,9 @@ const handleRemoveResume = () => {
             <div className="invisible"></div>
         </div>
 
-        <span className="text-xs text-gray-400 font-medium uppercase">Personal Information</span>
+        <span className="text-md text-gray-500 font-medium uppercase">Personal Information</span>
+        <span className="text-md text-gray-500 bold">
+          Enter phone number along with country code </span>
         <div className="flex justify-between flex-wrap gap-4">
           <InputField label="First Name" name="name" defaultValue={existingTeacher?.name} required />
           <InputField label="Last Name" name="surname" defaultValue={existingTeacher?.surname} required />
@@ -179,7 +181,7 @@ const handleRemoveResume = () => {
           <InputField label="Birthday" name="birthday" type="date" defaultValue={formatDate(existingTeacher?.birthday)} required />
 
           <div className="flex flex-col gap-2 w-full md:w-1/4">
-            <label className="text-xs text-gray-500">Sex</label>
+            <label className="text-md text-black">Sex</label>
             <select
               name="sex"
               className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
@@ -194,7 +196,7 @@ const handleRemoveResume = () => {
           </div>
 
           <div className="flex flex-col gap-2 w-full md:w-1/4">
-            <label htmlFor="subjectSelect" className="text-xs text-gray-500">Subject</label>
+            <label htmlFor="subjectSelect" className="text-md text-black">Subject</label>
             <select
               id="subjectSelect"
               value={selectedSubject}
@@ -212,7 +214,7 @@ const handleRemoveResume = () => {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="profileImage" className="block font-medium text-sm text-gray-700">
+          <label htmlFor="profileImage" className="block font-medium text-md text-black">
             Upload Profile Image
           </label>
           <input 
@@ -233,7 +235,7 @@ const handleRemoveResume = () => {
         </div>
          {/* Resume Upload */}
   <div className="space-y-2">
-    <label className="block font-medium text-sm text-gray-700">Upload Resume</label>
+    <label className="block font-medium text-md text-black">Upload Resume</label>
     <input
       type="file"
       name="resume"
@@ -294,7 +296,7 @@ const InputField = ({
   required = false
 }: InputFieldProps) => (
   <div className="flex flex-col gap-2 w-full md:w-1/4">
-    <label htmlFor={name} className="text-xs text-gray-500">
+    <label htmlFor={name} className="text-md text-black">
       {label}
     </label>
     <input

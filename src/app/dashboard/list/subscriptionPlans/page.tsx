@@ -311,10 +311,10 @@ const SubscriptionPlan = () => {
             </div>
           )}
         </div>
-
-        <h4 className="text-md font-bold text-center text-red-600 mt-10">
-         Grades 1 to 4 (Basic), 5 & 6 (Intermediate), and 7 & 8 (Advanced) refer to the levels of Tamil language learning, not his/her school grade. For example, a 10 year-old is new to Tamil may start at Grade between 1 to 4 – Basic Tamil, while a 12 year-old with Good Tamil language skill might start at Grade 5 or 6 – Intermediate Tamil.</h4>
-        <h5 className="text-md font-bold text-center text-red-600 mt-5 mb-5">
+        
+        <h4 className="text-md font-bold text-center text-primary mt-10">
+         Grades 1 to 4 (Basic), 5 & 6 (Intermediate), and 7 & 8 (Advanced) refer to the levels of Tamil language learning,<br /> not his/her school grade. For example, a 10 year-old is new to Tamil may start at Grade between 1 to 4 – Basic Tamil, <br />while a 12 year-old with Good Tamil language skill might start at Grade 5 or 6 – Intermediate Tamil.</h4>
+        <h5 className="text-md font-bold text-center text-primary mt-5 mb-5">
            * Tamil Grade is assigned by teacher after free trial session, based on the Tamil Grade you can choose the subscription plan.</h5>
         
         <div className="py-6 px-4 md:px-2 bg-gray-50 mt-4">
@@ -345,7 +345,7 @@ const SubscriptionPlan = () => {
                   <p className="text-3xl font-bold mb-1">$0 <span className="text-base text-gray-500">/ Free Trial</span></p>
                 ) : (
                   <p className="text-3xl font-bold mb-1">
-                    ${billingCycle === "monthly" ? plan.price : (plan.price * 11)}
+                    ${billingCycle === "monthly" ? plan.price : (plan.price * 10)}
                     <span className="text-base text-gray-500"> {" "}/ {billingCycle}</span>
                   </p>
                 )}
