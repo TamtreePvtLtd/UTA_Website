@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectMongoDB } from "@/lib/mongodb";
 import Teacher from "@/models/teacherModel";
 import "@/models/subjectModel";
-import "@/models/classModel";
 import cloudinary from "@/lib/cloudinary";
 
 function getCloudinaryPublicId(url: string): string | null {
@@ -24,8 +23,7 @@ export async function GET(
     await connectMongoDB();
     const teacher = await Teacher.findById(id)
       .select("-password")
-      .populate("subjects", "name")
-      .populate("classes", "name");
+      .populate("subjects", "name");
 
     if (!teacher) {
       return NextResponse.json({ msg: "Teacher not found" }, { status: 404 });

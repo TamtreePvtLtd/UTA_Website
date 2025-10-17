@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectMongoDB } from '@/lib/mongodb';
-import '@/models/parent';
 import Student from '@/models/studentModel';
 
 export async function GET(req: NextRequest) {
@@ -9,29 +8,41 @@ export async function GET(req: NextRequest) {
 
     const studentIdsParam = req.nextUrl.searchParams.get('studentIds');
     if (!studentIdsParam) {
-      return NextResponse.json({ message: 'Student IDs are required' }, { status: 400 });
+      return NextResponse.json(
+        { message: 'Student IDs are required' },
+        { status: 400 }
+      );
     }
 
     const studentIds = studentIdsParam.split(',');
 
-    // Fetch students and populate their parent
-    const students = await Student.find({ _id: { $in: studentIds } }).populate('parent');
+    // Fetch students (only needed fields) and populate parent
+    const students = await Student.find({ _id: { $in: studentIds } })
+      .select('_id name surname email parent') 
+      .populate('parent')
+      .lean();
 
-    // Collect unique parents
     const uniqueParentsMap = new Map();
-    students.forEach(student => {
-      if (student.parent && typeof (student.parent as any).toObject === 'function') {
-  const parentDoc = student.parent as any;
-  const parentId = parentDoc._id.toString();
 
-  if (!uniqueParentsMap.has(parentId)) {
-    const parentData = parentDoc.toObject();
-    parentData.student = [student];
-    uniqueParentsMap.set(parentId, parentData);
-  } else {
-    uniqueParentsMap.get(parentId).student.push(student);
-  }
-}
+    students.forEach((student) => {
+      if (student.parent) {
+        const parentId = student.parent._id.toString();
+
+        // Keep only selected student fields
+        const minimalStudent = {
+          _id: student._id,
+          name: student.name,
+          surname: student.surname,
+          email: student.email,
+        };
+
+        if (!uniqueParentsMap.has(parentId)) {
+          const parentData = { ...student.parent, student: [minimalStudent] };
+          uniqueParentsMap.set(parentId, parentData);
+        } else {
+          uniqueParentsMap.get(parentId).student.push(minimalStudent);
+        }
+      }
     });
 
     const parents = Array.from(uniqueParentsMap.values());
