@@ -33,6 +33,4 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
 };
 
-// const withNextIntl = createNextIntlPlugin();
-// export default withNextIntl(nextConfig);
 export default nextConfig;
