@@ -51,7 +51,7 @@ return (
     {/* Logo */}
     <Link href="/" className="flex items-center h-full">
       <Image
-        src="/utalogo.png"
+        src="/utalogo.jpg"
         alt="Logo"
         width={260}   
         height={90}

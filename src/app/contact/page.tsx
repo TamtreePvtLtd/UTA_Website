@@ -72,14 +72,14 @@ const ContactPage = () => {
               <li>📧 <strong>Email:</strong>{' '}
                   universaltamilacademy@gmail.com
               </li>
-              <li>📞 <strong>Phone:</strong> +91 99999 99999</li>
+              {/* <li>📞 <strong>Phone:</strong> +91 99999 99999</li> */}
               <li>🌐 <strong>Website:</strong>{' '}
                 <a href="" className="text-blue-600 underline">
                   www.universaltamilacademy.com
                 </a>
               </li>
               <li>🕐 <strong>Working Days:</strong> All Seven Days 24/7</li>
-              <li>📍 <strong>Location:</strong> Chennai, Tamil Nadu, India (Online Worldwide)</li>
+              <li>📍 <strong>Location:</strong> Texas, United States of America (USA)</li>
             </ul>
           </div>
 

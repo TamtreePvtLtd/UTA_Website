@@ -129,7 +129,7 @@ const PrivacyPolicyPage = () => {
         <div>
           <p className="mb-2">If you have any questions or requests about this Privacy Policy:</p>
           <p className="mb-1">📧 Email: universaltamilacademy@gmail.com</p>
-          <p className="mb-1">📞 Phone: +91 99999 99999</p>
+          {/* <p className="mb-1">📞 Phone: +91 99999 99999</p> */}
           <p className="mb-1">🌐 Website: www.universaltamilacademy.com</p>
         </div>
       </section>
