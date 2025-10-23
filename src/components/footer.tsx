@@ -37,22 +37,16 @@ const Footer = () => {
 
     {/* Social */}
     <div>
-      <h3 className="text-lg font-semibold mb-3">Stay Connected</h3>
-      <div className="flex space-x-4 text-xl">
-        <a href="#" aria-label="Facebook" className="hover:text-blue-400">
-          <FaFacebook />
-        </a>
-        <a href="#" aria-label="Instagram" className="hover:text-pink-400">
-          <FaInstagram />
-        </a>
-        <a href="#" aria-label="YouTube" className="hover:text-red-400">
-          <FaYoutube />
-        </a>
-        <a href="#" aria-label="WhatsApp" className="hover:text-amber-400">
-          <FaWhatsapp />
-        </a>
-      </div>
-    </div>
+          <h3 className="text-lg font-semibold mb-3">Stay Connected</h3>
+          <a
+            href="https://www.universaltamilacademy.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-black font-bold hover:text-blue-600"
+          >
+            www.universaltamilacademy.com
+          </a>
+        </div>
   </div>
 
   <div className="border-t border-gray-200 text-center py-4 text-sm text-black">

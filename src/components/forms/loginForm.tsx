@@ -3,13 +3,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn, getSession } from "next-auth/react";
-import Image from "next/image";
 import NavDropdown from "../NavDropdown";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -80,9 +81,6 @@ export default function Login() {
             </p>
           </div>
 
-          {/* <div className="mt-10 text-sm italic text-white/90">
-            “அறிவுக்கு அறம் சேர்க்கும் இடம் – Universal Tamil Academy”
-          </div> */}
         </div>
 
         {/* Right Form Section (40%) */}
@@ -111,15 +109,21 @@ export default function Login() {
                   required
                 />
               </div>
-              <div className="flex flex-col space-y-2 w-full">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:ring-0 focus:border-gray-400 focus:bg-gray-50 text-md"
-                  required
-                />
+              <div className="flex flex-col space-y-2 w-full relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:ring-0 focus:border-gray-400 focus:bg-gray-50 text-md pr-10"
+                    required
+                  />
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-5 cursor-pointer text-gray-600"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
               </div>
             </div>
 

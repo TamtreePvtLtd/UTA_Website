@@ -18,7 +18,7 @@ export default function DashboardLayout({
       {/* LEFT SIDEBAR */}
       <div
         className={`fixed md:relative z-50 bg-white p-4 transition-transform duration-300
-        w-[70%] sm:w-[50%] md:w-[8%] lg:w-[12%] xl:w-[14%] h-full 
+        w-[70%] sm:w-[50%] md:w-[8%] lg:w-[15%] xl:w-[15%] h-full 
         flex flex-col 
         ${isSideMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
@@ -35,7 +35,7 @@ export default function DashboardLayout({
             href=""
             className="flex items-center justify-center lg:justify-start gap-2 mb-4"
           >
-            <Image src="/utalogo.jpg" alt="logo" width={220} height={70} />
+            <Image src="/utalogo.jpg" alt="logo" width={220} height={70} unoptimized/>
           </Link>
         )}
 
@@ -55,13 +55,13 @@ export default function DashboardLayout({
       )}
 
       {/* RIGHT MAIN CONTENT */}
-      <div className="flex flex-col w-full md:w-[92%] lg:w-[88%] xl:w-[86%] bg-[#F7F8FA] min-h-screen">
+      <div className="flex flex-col w-full md:w-[92%] lg:w-[85%] xl:w-[85%] bg-[#F7F8FA] min-h-screen">
         {/* Navbar + Menu Toggle */}
         <div className="flex items-center justify-between bg-white shadow-sm px-4 py-3 md:hidden">
           <button onClick={() => setSideMenuOpen(true)}>
             <FiMenu className="text-3xl" />
           </button>
-          <Image src="/utalogo.jpg" alt="logo" width={120} height={50} />
+          <Image src="/utalogo.jpg" alt="logo" width={120} height={50} unoptimized/>
         </div>
 
         <Navbar />

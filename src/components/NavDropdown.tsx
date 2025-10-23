@@ -55,7 +55,7 @@ return (
         alt="Logo"
         width={260}   
         height={90}
-        priority
+        priority unoptimized
         className="object-contain h-full w-auto"
       />
     </Link>

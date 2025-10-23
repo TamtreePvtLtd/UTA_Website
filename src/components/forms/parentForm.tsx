@@ -2,9 +2,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { parsePhoneNumberFromString, AsYouType } from 'libphonenumber-js';
 import NavDropdown from '../NavDropdown';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 // Complete countries list with ISO codes
 const countries = [
@@ -229,10 +229,10 @@ const ParentRegisterForm = () => {
     phone: false, 
     country: false 
   });
-  
   const [isValidating, setIsValidating] = useState(false);
   const [phoneFormat, setPhoneFormat] = useState('');
   const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   
   const router = useRouter();
 
@@ -510,9 +510,6 @@ const ParentRegisterForm = () => {
             </p>
           </div>
 
-          {/* <div className="mt-10 text-sm italic text-white/90">
-            “உலகம் முழுவதும் தமிழ் கற்க – Universal Tamil Academy”
-          </div> */}
         </div>
       
       {/* Right: Form */}
@@ -554,9 +551,9 @@ const ParentRegisterForm = () => {
             </div>
 
             {/* Password Field */}
-            <div className="flex flex-col space-y-1 w-full">
+            <div className="flex flex-col space-y-1 w-full relative">
               <input 
-                type="password" 
+                type={showPassword ? "text" : "password"} 
                 name="password" 
                 placeholder="Password" 
                 value={formData.password}
@@ -564,10 +561,15 @@ const ParentRegisterForm = () => {
                 onBlur={() => handleBlur('password')}
                 className={`block w-full px-3 py-3 mt-1 border rounded-lg focus:outline-none text-md ${
                   errors.password ? 'border-red-500 bg-red-50' : 'border-gray-400 focus:bg-gray-50'
-                }`}
+                } pr-10`}
                 required 
               />
-              
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-5 cursor-pointer text-gray-600"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
               {/* Password Error Display */}
               {(touched.password && passwordErrors.length > 0) && (
                 <div className="text-sm text-red-500 mt-2">
