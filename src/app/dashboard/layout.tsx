@@ -18,7 +18,7 @@ export default function DashboardLayout({
       {/* LEFT SIDEBAR */}
       <div
         className={`fixed md:relative z-50 bg-white p-4 transition-transform duration-300
-        w-[70%] sm:w-[50%] md:w-[8%] lg:w-[16%] xl:w-[14%] h-full 
+        w-[70%] sm:w-[50%] md:w-[8%] lg:w-[12%] xl:w-[14%] h-full 
         flex flex-col 
         ${isSideMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
       >
@@ -30,7 +30,7 @@ export default function DashboardLayout({
         </div>
 
         {/* LOGO */}
-       {!isSideMenuOpen && (
+        {!isSideMenuOpen && (
           <Link
             href=""
             className="flex items-center justify-center lg:justify-start gap-2 mb-4"
@@ -55,7 +55,7 @@ export default function DashboardLayout({
       )}
 
       {/* RIGHT MAIN CONTENT */}
-      <div className="flex flex-col w-full md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#F7F8FA] min-h-screen">
+      <div className="flex flex-col w-full md:w-[92%] lg:w-[88%] xl:w-[86%] bg-[#F7F8FA] min-h-screen">
         {/* Navbar + Menu Toggle */}
         <div className="flex items-center justify-between bg-white shadow-sm px-4 py-3 md:hidden">
           <button onClick={() => setSideMenuOpen(true)}>

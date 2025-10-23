@@ -57,21 +57,35 @@ export default function Menu({ closeSideMenu, isSideMenuOpen }: MenuProps) {
 
   return (
     <div
-      className={`mt-4 text-md overflow-y-auto h-[calc(100%-2rem)] pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent`}
+      className="mt-4 text-md overflow-y-auto h-[calc(100%-2rem)] pr-2 scrollbar-hide"
+      style={{
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+      }}
     >
+      <style jsx>{`
+        div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+
       {menuItems
         .filter((section) => section.title !== "OTHER" || role === "parent")
         .map((section) => (
           <div className="flex flex-col gap-2" key={section.title}>
-            {/* Always show section title when sidebar is open or on large screens */}
+            {/* Section Title */}
             <span
-              className={`text-gray-400 font-light my-4 ${
-                isSideMenuOpen ? "block" : "hidden md:block"
-              }`}
+              className={`text-gray-400 font-light my-4 transition-all duration-300
+                ${
+                  isSideMenuOpen
+                    ? "block"
+                    : "hidden md:hidden lg:hidden xl:block"
+                }`}
             >
               {section.title}
             </span>
 
+            {/* Menu Items */}
             {section.items.map((item) => {
               if (item.visible.includes(role)) {
                 return (
@@ -79,22 +93,35 @@ export default function Menu({ closeSideMenu, isSideMenuOpen }: MenuProps) {
                     key={item.label}
                     href={item.href}
                     onClick={closeSideMenu}
-                    className="flex items-center justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight"
+                    className="flex items-center justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight transition-all duration-200"
                   >
-                    <Image
-                      src={item.icon}
-                      alt={item.label}
-                      width={20}
-                      height={20}
-                      className={dimmedIcons.includes(item.icon) ? "opacity-90" : ""}
-                    />
-                    {/* Always show label when sidebar is open or on large screens */}
-                    <span className={`${isSideMenuOpen ? "block" : "hidden md:block"}`}>
+                    {/* Fixed-size Icon (will NOT shrink) */}
+                    <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 min-w-[32px] min-h-[32px]">
+                      <Image
+                        src={item.icon}
+                        alt={item.label}
+                        width={28}
+                        height={28}
+                        className={`object-contain ${
+                          dimmedIcons.includes(item.icon) ? "opacity-90" : ""
+                        }`}
+                      />
+                    </div>
+
+                    {/* Label visibility based on sidebar state */}
+                    <span
+                      className={`whitespace-nowrap text-md ${
+                        isSideMenuOpen
+                          ? "block"
+                          : "hidden md:hidden lg:hidden xl:block"
+                      }`}
+                    >
                       {item.label}
                     </span>
                   </Link>
                 );
               }
+              return null;
             })}
           </div>
         ))}
