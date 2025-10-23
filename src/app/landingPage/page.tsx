@@ -57,7 +57,7 @@ const LandingPage = () => {
       </nav>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-14 py-12">
         {/* Language Section */}
         {activeTab === 'language' && (
           <section className="fade-in">
@@ -132,7 +132,7 @@ const LandingPage = () => {
                     lithotomy, and plastic surgery documented centuries before they appeared in Western medicine.
                   </p>
                 </div>
-                <div className="md:w-1/2 order-1 md:order-2">
+                <div className="md:w-1/2 order-1 md:order-1 flex justify-end">
                   <Image
                     src="/science.jfif" 
                     alt="Ancient Tamil Medicine"
@@ -248,7 +248,7 @@ const LandingPage = () => {
                     preserving ancient techniques while adapting to modern contexts.
                   </p>
                 </div>
-                <div className="md:w-1/2 order-1 md:order-2">
+                <div className="md:w-1/2 order-1 md:order-1 flex justify-end">
                   <Image
                     src="/culture.jpg" 
                     alt="Tamil Traditions"
@@ -290,7 +290,7 @@ const LandingPage = () => {
 
         {/* Courses Section */}
         <section>
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center ">Our Courses</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center py-5">Our Courses</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
@@ -314,7 +314,7 @@ const LandingPage = () => {
               },
               {
                 level: 'Customized',
-                description: 'Tailored to your specific needs and goals',
+                description: 'Tailored to your specific goals and requirement',
                 features: ['Personalized curriculum', 'Specialized vocabulary', 'Flexible scheduling', 'One-on-one attention'],
                 color: 'from-amber-50 to-amber-50'
               }
@@ -343,7 +343,7 @@ const LandingPage = () => {
 
         {/* About Academy Section */}
         <section>
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center ">About Our Academy</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8 text-center py-9">About Our Academy</h2>
           
           <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
             <div className="md:w-1/2">
@@ -381,7 +381,7 @@ const LandingPage = () => {
         </section>
   
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-amber-50 to-amber-50 text-black p-8 rounded-2xl text-center">
+        <section className="bg-gradient-to-r from-amber-50 to-amber-50 text-black p-8 rounded-2xl text-center mt-4">
           <h2 className="text-3xl font-bold mb-4 ">Start Learning Tamil Today!</h2>
           <p className="text-xl mb-6 max-w-2xl mx-auto">Join thousands of students who have successfully learned Tamil with our proven methods</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -397,7 +397,7 @@ const LandingPage = () => {
       </main>
       
       {/* Testimonials Section */}
-      <section className="bg-white py-16 px-6 md:px-12">
+      <section className="bg-white py-12 px-6 md:px-12">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12">
             Parent Testimonials

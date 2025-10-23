@@ -64,16 +64,13 @@ export const authOptions: NextAuthOptions = {
           role = "Parent";
           name = user?.username;
           profileImage = user?.profileImage;
-          const paymentStatus = user?.student?.paymentStatus;
         }
 
         if (!user) return null;
 
-        if (role !== "Parent") {
-          if (!user.password) return null;
-          const isValid = await bcrypt.compare(password, user.password);
-          if (!isValid) return null;
-        }
+        if (!user.password) return null;
+        const isValid = await bcrypt.compare(password, user.password);
+        if (!isValid) return null;
 
         return {
           id: user._id.toString(),

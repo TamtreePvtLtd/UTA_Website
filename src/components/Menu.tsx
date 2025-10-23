@@ -75,7 +75,7 @@ export default function Menu({ closeSideMenu, isSideMenuOpen }: MenuProps) {
           <div className="flex flex-col gap-2" key={section.title}>
             {/* Section Title */}
             <span
-              className={`text-gray-400 font-light my-4 transition-all duration-300
+              className={`text-gray-700 font-light my-4 transition-all duration-300
                 ${
                   isSideMenuOpen
                     ? "block"
@@ -93,7 +93,7 @@ export default function Menu({ closeSideMenu, isSideMenuOpen }: MenuProps) {
                     key={item.label}
                     href={item.href}
                     onClick={closeSideMenu}
-                    className="flex items-center justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight transition-all duration-200"
+                    className="flex items-center justify-start gap-4 text-gray-700 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight transition-all duration-200"
                   >
                     {/* Fixed-size Icon (will NOT shrink) */}
                     <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 min-w-[32px] min-h-[32px]">
@@ -102,7 +102,7 @@ export default function Menu({ closeSideMenu, isSideMenuOpen }: MenuProps) {
                         alt={item.label}
                         width={28}
                         height={28}
-                        className={`object-contain ${
+                        className={`object-contain hover:text-primary ${
                           dimmedIcons.includes(item.icon) ? "opacity-90" : ""
                         }`}
                       />
@@ -110,7 +110,7 @@ export default function Menu({ closeSideMenu, isSideMenuOpen }: MenuProps) {
 
                     {/* Label visibility based on sidebar state */}
                     <span
-                      className={`whitespace-nowrap text-md ${
+                      className={`whitespace-nowrap text-md hover:text-primary ${
                         isSideMenuOpen
                           ? "block"
                           : "hidden md:hidden lg:hidden xl:block"

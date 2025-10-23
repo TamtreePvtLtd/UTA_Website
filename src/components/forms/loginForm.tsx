@@ -105,7 +105,7 @@ export default function Login() {
                   name="email"
                   placeholder="User Name (abc@gmail.com)"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:ring-0 focus:border-gray-400 focus:bg-gray-50 text-md"
+                  className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:ring-0 focus:border-gray-400 focus:bg-gray-50 text-md placeholder-gray-600"
                   required
                 />
               </div>
@@ -115,7 +115,7 @@ export default function Login() {
                     name="password"
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:ring-0 focus:border-gray-400 focus:bg-gray-50 text-md pr-10"
+                    className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:ring-0 focus:border-gray-400 focus:bg-gray-50 text-md pr-10 placeholder-gray-600"
                     required
                   />
                   <span

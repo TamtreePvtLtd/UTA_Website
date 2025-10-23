@@ -542,7 +542,7 @@ const ParentRegisterForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 onBlur={() => handleBlur('email')}
-                className={`block w-full px-3 py-3 mt-1 border rounded-lg focus:outline-none text-md ${
+                className={`block w-full px-3 py-3 mt-1 border rounded-lg focus:outline-none text-md placeholder-gray-600 ${
                   errors.email ? 'border-red-500 bg-red-50' : 'border-gray-400 focus:bg-gray-50'
                 }`}
                 required 
@@ -559,7 +559,7 @@ const ParentRegisterForm = () => {
                 value={formData.password}
                 onChange={handleChange}
                 onBlur={() => handleBlur('password')}
-                className={`block w-full px-3 py-3 mt-1 border rounded-lg focus:outline-none text-md ${
+                className={`block w-full px-3 py-3 mt-1 border rounded-lg focus:outline-none text-md placeholder-gray-600 ${
                   errors.password ? 'border-red-500 bg-red-50' : 'border-gray-400 focus:bg-gray-50'
                 } pr-10`}
                 required 
@@ -643,7 +643,7 @@ const ParentRegisterForm = () => {
                     value={phoneFormat}
                     onChange={handleChange}
                     onBlur={() => handleBlur('phone')}
-                    className={`block w-full px-3 py-3 mt-1 border rounded-lg focus:outline-none text-md ${
+                    className={`block w-full px-3 py-3 mt-1 border rounded-lg focus:outline-none text-md placeholder-gray-600 ${
                       errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-400 focus:bg-gray-50'
                     }`}
                     required 
