@@ -114,9 +114,14 @@ const FreeTrialPage = () => {
 
   return (
     <div>
-      <section className="bg-gradient-to-r from-amber-100 to-amber-100 text-black py-8 px-6 text-center">
-        <h1 className="text-4xl font-bold mb-4">Parent Dashboard</h1>
-      </section>
+      <section  className="relative bg-cover bg-center py-20 px-6 text-center"  style={{ backgroundImage: "url('/bgbanner.png')" }}>
+      <div className="absolute inset-0 bg-opacity-50"></div>
+      <div className="relative z-10">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          Parent Dashboard
+        </h1>
+      </div>
+    </section>
     <div className="bg-white rounded-md flex-1 m-4 mt-0 p-1 sm:p-2 md:p-3 lg:p-6 mt-4">
       <h1 className="text-md sm:text-md md:text-lg lg:text-xl 2xl:text-xl font-bold mb-4">Book Your Free Trial Class</h1>
 

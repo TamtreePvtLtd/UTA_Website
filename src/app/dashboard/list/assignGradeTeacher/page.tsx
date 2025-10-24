@@ -57,7 +57,7 @@ const AssignGradeTeacher = () => {
   const rowsPerPage = 10;
 
   useEffect(() => {
-    if (userRole !== 'Admin') {
+    if (userRole !== 'Admin' && userRole !== 'Teacher') {
       router.push('/dashboard');
       return;
     }

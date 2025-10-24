@@ -175,7 +175,7 @@ const handleRemoveResume = () => {
           <InputField label="First Name" name="name" defaultValue={existingTeacher?.name} required />
           <InputField label="Last Name" name="surname" defaultValue={existingTeacher?.surname} required />
           <InputField label="Whatsapp No" name="phone" defaultValue={existingTeacher?.phone} />
-          <InputField label="Alternate Phone No" name="additionalPhone" defaultValue={existingTeacher?.additionalPhone} />
+          <InputField label="Additional No (Optional)" name="additionalPhone" defaultValue={existingTeacher?.additionalPhone} />
           <InputField label="Address" name="address" defaultValue={existingTeacher?.address} required />
           <InputField label="Blood Type" name="bloodType" defaultValue={existingTeacher?.bloodType} required />
           <InputField label="Birthday" name="birthday" type="date" defaultValue={formatDate(existingTeacher?.birthday)} required />
@@ -184,7 +184,7 @@ const handleRemoveResume = () => {
             <label className="text-md text-black">Sex</label>
             <select
               name="sex"
-              className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
+              className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-md w-full"
               defaultValue={existingTeacher?.sex || ""}
               required
             >
@@ -201,7 +201,7 @@ const handleRemoveResume = () => {
               id="subjectSelect"
               value={selectedSubject}
               onChange={(e) => setSelectedSubject(e.target.value)}
-              className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
+              className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-md w-full"
             >
               <option value="">Select Subject</option>
               {subjectList.map((subj) => (
@@ -305,7 +305,7 @@ const InputField = ({
       id={name}
       defaultValue={defaultValue}
       placeholder={placeholder}
-      className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm"
+      className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-md"
       required={required}
     />
   </div>

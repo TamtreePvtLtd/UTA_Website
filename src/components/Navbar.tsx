@@ -60,22 +60,9 @@ const Navbar = () => {
   const loginUserEmail = session?.user?.email || emailUser || "";
   
   return (
-    <div className="flex items-center justify-between p-4">
+    <div className="flex items-center justify-between p-4 text-black">
       {/* ICONS AND USER */}
       <div className="flex items-center gap-6 justify-end w-full">
-        {/* Only show announcement if we have a session and user is not parent */}
-        {/* {(session?.user && session?.user?.role !== "Parent") && (
-          <Link href="/dashboard/list/announcement">
-            <div className="bg-white rounded-full w-7 h-7 flex items-center justify-center cursor-pointer">
-              <Image
-                src="/announcement.png"
-                alt="Notifications"
-                width={20}
-                height={20}
-              />
-            </div>
-          </Link>
-        )} */}
 
         {/* Show user info if we have either session or parent data */}
         {(session?.user || parentId) && (

@@ -22,7 +22,7 @@ const menuItems = [
       { icon: "/parent.png", label: "Parents", href: "/dashboard/list/parents", visible: ["admin", "teacher"] },
       { icon: "/subscription.jpg", label: "Subscription", href: "/dashboard/list/subscriptionPlans", visible: ["parent"] },
       { icon: "/payment.png", label: "Payment", href: "/dashboard/list/paymentDetails", visible: ["parent"] },
-      { icon: "/assignment.png", label: "Assign Grade", href: "/dashboard/list/assignGradeTeacher", visible: ["admin"] },
+      { icon: "/assignment.png", label: "Assign Grade", href: "/dashboard/list/assignGradeTeacher", visible: ["admin", "teacher"] },
       { icon: "/invoice.png", label: "Generate Bill", href: "/dashboard/list/generateBill", visible: ["admin"] },
       { icon: "/class.png", label: "Classes", href: "/dashboard/list/classes", visible: ["admin", "teacher"] },
       { icon: "/subject.png", label: "Subjects", href: "/dashboard/list/subjects", visible: ["admin"] },
