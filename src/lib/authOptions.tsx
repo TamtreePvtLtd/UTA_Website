@@ -41,10 +41,7 @@ export const authOptions: NextAuthOptions = {
       name: "Credentials",
       credentials: {},
       async authorize(credentials) {
-        const { email, password } = credentials as {
-          email: string;
-          password: string;
-        };
+        const { email, password } = credentials as { email: string; password: string };
         await connectMongoDB();
 
         let user = await Admin.findOne({ email });
@@ -66,9 +63,8 @@ export const authOptions: NextAuthOptions = {
           profileImage = user?.profileImage;
         }
 
-        if (!user) return null;
+        if (!user || !user.password) return null;
 
-        if (!user.password) return null;
         const isValid = await bcrypt.compare(password, user.password);
         if (!isValid) return null;
 
@@ -77,7 +73,7 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           name,
           role,
-          image: profileImage || null,
+          image: user.profileImage || null,
         };
       },
     }),
@@ -95,15 +91,9 @@ export const authOptions: NextAuthOptions = {
       },
     },
   },
-   session: {
-    strategy: "jwt",
-    updateAge: 0, 
-    maxAge: 30 * 24 * 60 * 60, 
-  },
   secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: "/login",
-  },
+  session: { strategy: "jwt", maxAge: 30 * 24 * 60 * 60, updateAge: 0 },
+  pages: { signIn: "/login" },
   callbacks: {
     async jwt({ token, user, trigger, session }) {
   // On first sign in

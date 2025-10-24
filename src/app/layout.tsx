@@ -20,7 +20,10 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "UTA",
+  title: "Universal Tamil Academy",
+  icons: {
+    icon: "/utalogo.jpg",
+  },
   description: "Universal Tamil Academy"
 };
 

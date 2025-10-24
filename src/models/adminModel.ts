@@ -12,7 +12,7 @@ const adminSchema = new mongoose.Schema<AdminInterface>({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ["Admin"], required: true },
+  role: { type: String, enum: ["Admin"], default: "Admin", required: true },
   profileImage: { type: String }, 
 },
   { timestamps: true }

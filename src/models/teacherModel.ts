@@ -46,7 +46,7 @@ const teacherSchema = new mongoose.Schema<TeacherInterface>({
   createdAt: { type: Date, default: Date.now },
   birthday: { type: Date, required: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ["Teacher"], required: true },
+  role: { type: String, enum: ["Teacher"], default: "Teacher", required: true },
   subjects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Subject" }],
   students: [{ type: mongoose.Schema.Types.ObjectId, ref: "Student" }],
 }, { timestamps: true });
