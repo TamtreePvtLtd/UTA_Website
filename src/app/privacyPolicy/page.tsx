@@ -24,7 +24,7 @@ const PrivacyPolicyPage = () => {
       <section className="flex-grow px-6 py-12 max-w-5xl mx-auto text-gray-800">
         <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
         <p className="mb-6">
-          Welcome to Universal Tamil Academy. This Privacy Policy along with our Terms of Use describes our practices regarding how we collect, store, use, share, and secure your Personal Information. It also describes your choices regarding use, access, and correction of your Personal Information and your rights in relation to your Personal Information.
+          Welcome to Universal Tamil Academy. This Privacy Policy, along with our Terms of Use, describes how we collect, store, use, share, and secure your personal information. It also explains your choices regarding the use, access, and correction of your personal information, and your rights related to it.
         </p>
         <p className="mb-6">
           By providing your consent to this Privacy Policy and using our services, you agree to the collection, use, and transfer of your Personal Information as set out in this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not use/access our website.
@@ -45,7 +45,7 @@ const PrivacyPolicyPage = () => {
 
         <h2 className="text-xl font-semibold mt-8 mb-2">3. Data We Collect</h2>
         <ul className="list-disc list-inside mb-4 space-y-1">
-          <li>Personal Info: Name, E-mail ID, Phone, Country, Gender, DOB, Profile Image, Student Details</li>
+          <li>Personal Information: Name, Email ID, Phone Number, Country, Gender, Date of Birth, Profile Image, and Student Details</li>
           <li>Account Info: Username, Password (encrypted)</li>
           <li>Device Info: IP address, Browser, Device Type, Pages Visited</li>
           <li>Payment Info: Card Details, Address, E-mail ID, Transaction ID</li>
@@ -53,7 +53,7 @@ const PrivacyPolicyPage = () => {
 
         <h2 className="text-xl font-semibold mt-8 mb-2">4. How We Use Your Data</h2>
         <ul className="list-disc list-inside mb-4 space-y-1">
-          <li>Communicate through E-mail, WhatsApp, or SMS</li>
+          <li>To communicate with you through email, WhatsApp, or SMS</li>
           <li>Provide, analyze, administer, and improve our services</li>
           <li>Provide customer service and support</li>
           <li>Detect and prevent fraudulent or illegal activities</li>
@@ -67,7 +67,7 @@ const PrivacyPolicyPage = () => {
           <li><strong>Legal Requirements:</strong> When required by law, or legal process</li>
         </ul>
         <div className="mb-4">
-          <p className="text-sm"><strong>Note:</strong> All payment transactions are processed through secure payment gateway providers. We do not store complete card information - only the last 4 digits for verification purposes.</p>
+          <p className="text-sm"><strong>Note:</strong> All payment transactions are processed through secure payment gateway providers. We do not store full card details — only the last four digits for verification purposes.</p>
         </div>
 
         <h2 className="text-xl font-semibold mt-8 mb-3">6. Data Security</h2>
@@ -80,13 +80,13 @@ const PrivacyPolicyPage = () => {
           <li>Regular security assessments and updates</li>
           <li>Password encryption using advanced hashing algorithms</li>
         </ul>
-        <p className="text-sm text-gray-600">While we implement robust security measures, no method of transmission over the Internet is 100% secure. We continuously work to enhance our security practices.</p>
+        <p className="text-sm text-gray-600">While we implement robust security measures, no method of transmission over the internet is completely secure. We continuously work to enhance our security practices.</p>
 
         <h2 className="text-xl font-semibold mt-8 mb-3">7. Children's Privacy</h2>
           <p className="mb-3">We comply with COPPA and other children's privacy regulations:</p>
           <ul className="list-disc list-inside space-y-2">
             <li>We do not knowingly collect personal information from children under 13 without parental consent</li>
-            <li>We collect only necessary information for educational purposes</li>
+            <li>We collect only the information necessary for educational purposes</li>
             <li>Parents can contact us to refuse further collection or use of their child's information</li>
           </ul>
 
@@ -117,12 +117,11 @@ const PrivacyPolicyPage = () => {
         </ul>
 
         <h2 className="text-xl font-semibold mt-8 mb-2">11. Updates to This Policy</h2>
-        <p className="mb-4">We may update this Privacy Policy periodically. We will notify registered users of significant changes and update the "last updated" date. Continued use of our services after changes constitutes acceptance of the revised policy.</p>
+        <p className="mb-4">We may update this Privacy Policy periodically. We will notify registered users of any significant changes and update the ‘Last Updated’ date accordingly. Continued use of our services after changes constitutes acceptance of the revised policy.</p>
 
         <h2 className="text-xl font-semibold mt-8 mb-2">12. Copyright</h2>
         <p className="mb-4">
-          All content on this site, including text and images, is owned by Universal Tamil Academy and protected by copyright law. Do not
-          copy without permission.
+          All content on this site, including text and images, is owned by Universal Tamil Academy and protected by copyright law. Content may not be copied or reproduced without prior written permission.
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-2">13. Contact Information</h2>

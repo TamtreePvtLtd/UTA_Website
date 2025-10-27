@@ -494,7 +494,7 @@ const ParentRegisterForm = () => {
           </h1>
           <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-lg">
             Create your parent account and connect your children with world-class
-            Tamil teachers. Be part of our global mission to preserve and spread
+            Tamil teachers. Be a part of our global mission to preserve and spread
             Tamil language and culture.
           </p>
 

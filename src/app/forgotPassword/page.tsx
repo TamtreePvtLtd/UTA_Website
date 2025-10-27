@@ -47,8 +47,7 @@ export default function ForgotPasswordPage() {
             Forgot Your Password
           </h1>
           <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-lg">
-            Forgot your password? No worries! Enter your registered email, and
-            we’ll send you a secure reset link to regain access to your account.
+            Forgot your password? No worries! Enter your registered email, and we’ll send you a secure reset link to help you regain access to your account.
           </p>
 
           <div className="space-y-4">

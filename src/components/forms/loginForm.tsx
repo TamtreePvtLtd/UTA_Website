@@ -63,9 +63,7 @@ export default function Login() {
             Welcome to Universal Tamil Academy
           </h1>
           <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-lg">
-            Spreading Tamil across the globe with expert teachers, engaging
-            online classes, and a mission to preserve and celebrate our rich
-            language and culture.
+            Spreading Tamil across the globe through expert teachers, engaging online classes, and a shared mission to preserve and celebrate our rich language and culture.
           </p>
 
           {/* Feature Highlights */}

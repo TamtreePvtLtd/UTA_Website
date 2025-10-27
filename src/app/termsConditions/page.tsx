@@ -24,7 +24,7 @@ const TermsAndConditionsPage = () => {
       <section className="flex-grow px-6 py-12 max-w-5xl mx-auto text-gray-800">
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-3">Quick Overview</h2>
-          <p>These Terms of Service constitute a legally binding agreement between you and Universal Tamil Academy regarding your use of our website, applications, and educational services. By accessing or using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms.</p>
+          <p>These Terms of Service constitute a legally binding agreement between you and Universal Tamil Academy regarding your use of our website, applications, and educational services. By accessing or using our services, you acknowledge that you have read, understood, and agreed to be bound by these Terms.</p>
         </div>
 
         <h2 className="text-2xl font-semibold mb-4">1. Interpretation and Definitions</h2>
@@ -40,7 +40,7 @@ const TermsAndConditionsPage = () => {
         </div>
 
         <h2 className="text-2xl font-semibold mb-4 ">2. Acknowledgment and Acceptance</h2>
-        <p className="mb-6">By accessing or using our Site, Application, or Services, you agree to comply with and be legally bound by these Terms and Conditions, whether or not you become a registered user. These Terms govern your access to and use of the Site, Application, Services, and all Collective Content, and constitute a binding legal agreement between you and Universal Tamil Academy. </p>
+        <p className="mb-6">By accessing or using our Site, Application, or Services, you agree to comply with and be legally bound by these Terms and Conditions, whether or not you become a registered user. These Terms govern your access to and use of the Site, Application, and Services, and constitute a binding legal agreement between you and Universal Tamil Academy. </p>
         <p className="mb-6">If you do not agree to these Terms, you have no right to obtain information from or otherwise continue using the Site, Application, or Services. Failure to use our services in accordance with these Terms may subject you to civil and criminal liabilities. </p>
 
         <h2 className="text-2xl font-semibold mb-4 ">3. Eligibility and User Accounts</h2>
@@ -48,7 +48,7 @@ const TermsAndConditionsPage = () => {
           <p className="mb-4">Use of the Site, Application, and Services is available only to persons who can form legally binding contracts under applicable laws. </p>
           <ul className="list-disc list-inside space-y-2">
             <li>The Site, Application, and Services are intended solely for persons who are 18 years of age or older.</li>
-            <li>If you are below 18, your parent or guardian must open an account and help you enroll in courses appropriate for you.</li>
+            <li>If you are below 18, your parent or guardian must open an account and help you enroll in courses appropriate for your age.</li>
             <li>Any access to or use of our services by anyone under 18 is expressly prohibited unless supervised by a parent or guardian.</li>
             <li>By accessing or using our services, you represent and warrant that you are 18 years or older, or have obtained parental consent. </li>
           </ul>
@@ -67,7 +67,7 @@ const TermsAndConditionsPage = () => {
         </div>
 
         <h2 className="text-2xl font-semibold mb-4 ">5. Services Description</h2>
-        <p className="mb-6">Universal Tamil Academy provides an online platform which offers various online Tamil language courses for Students. Our services include live online classes, pre-recorded lessons, study materials, and educational resources. Unless explicitly specified otherwise, our responsibilities are limited to facilitating the availability of courses through the Site, Application, and Services. </p>
+        <p className="mb-6">Universal Tamil Academy provides an online platform that offers various online Tamil language courses for Students. Our services include live online classes, pre-recorded lessons, study materials, and educational resources. Unless explicitly specified otherwise, our responsibilities are limited to facilitating the availability of courses through the Site, Application, and Services. </p>
 
         <h2 className="text-2xl font-semibold mb-4 ">6. Payments, Fees, and Refunds</h2>
         <div className="mb-6">
@@ -79,7 +79,7 @@ const TermsAndConditionsPage = () => {
             <li>All payment transactions are processed through secure payment gateway providers. </li>
           </ul>
           <p className="mt-4 font-semibold">Refund Policy:</p>
-          <p>Refund requests will be evaluated on a case-by-case basis. Please contact us directly at universaltamilacademy@gmail.com to discuss refund options.</p>
+          <p>Refund requests will be reviewed and processed on a case-by-case basis. Please contact us directly at universaltamilacademy@gmail.com to discuss refund options.</p>
         </div>
 
         <h2 className="text-2xl font-semibold mb-4 ">7. Intellectual Property Rights</h2>
@@ -107,14 +107,14 @@ const TermsAndConditionsPage = () => {
         </div>
 
         <h2 className="text-2xl font-semibold mb-4 ">9. Communication Consent</h2>
-        <p className="mb-6">By registering for our services, you explicitly consent to receive communications from us via email, SMS, WhatsApp, push notifications, or other electronic means regarding your account, transactions, and promotional offers. This consent supersedes any registry with Do Not Disturb (DND) services as per applicable telecommunications regulations.  You may opt-out of promotional communications at any time by following the unsubscribe instructions provided in such communications.</p>
+        <p className="mb-6">By registering for our services, you explicitly consent to receive communications from us via email, SMS, WhatsApp, push notifications, or other electronic means regarding your account, transactions, and promotional offers. This consent overrides any registration with Do Not Disturb (DND) services, as permitted under applicable telecommunications regulations.</p>
 
         <h2 className="text-2xl font-semibold mb-4 ">10. Privacy Policy</h2>
         <p className="mb-6">Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your personal information when you use our Services. By using our Services, you agree to the collection and use of information in accordance with our Privacy Policy. Please read our Privacy Policy carefully before using our Service. </p>
 
         <h2 className="text-2xl font-semibold mb-4 ">11. Disclaimer of Warranties</h2>
         <div className="mb-6">
-          <p className="mb-4">The Service is provided to You "AS IS" and "AS AVAILABLE" with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company expressly disclaims all warranties, whether express, implied, statutory, or otherwise. </p>
+          <p className="mb-4">The Service is provided to you "AS IS" and "AS AVAILABLE" with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company expressly disclaims all warranties, whether express, implied, statutory, or otherwise. </p>
           <ul className="list-disc list-inside space-y-2">
             <li>We do not warrant that the Service will meet your requirements, achieve any intended results, or be error-free.</li>
             <li>We do not warrant that the Service will operate without interruption or meet any performance or reliability standards.</li>
@@ -124,7 +124,7 @@ const TermsAndConditionsPage = () => {
 
         <h2 className="text-2xl font-semibold mb-4 ">12. Limitation of Liability</h2>
         <p className="mb-6">To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever arising out of or in any way related to your use of or inability to use the Service. </p>
-        <p className="mb-6">Notwithstanding any damages that you might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms shall be limited to the amount actually paid by you through the Service. </p>
+        <p className="mb-6">Notwithstanding any damages that you might incur, the entire liability of the Company and any of its suppliers under any provision of these Terms shall be limited to the amount actually paid by you for the Service. </p>
 
         <h2 className="text-2xl font-semibold mb-4 ">13. Termination</h2>
         <p className="mb-6">We may terminate or suspend your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms and Conditions. Upon termination, your right to use the Service will cease immediately. </p>
@@ -138,7 +138,7 @@ const TermsAndConditionsPage = () => {
 
         <h2 className="text-2xl font-semibold mb-4 ">15. Changes to Terms</h2>
         <p className="mb-6">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. </p>
-        <p className="mb-6">By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service. </p>
+        <p className="mb-6">By continuing to access or use our Services after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service. </p>
 
         <h2 className="text-2xl font-semibold mb-4 ">16. Contact Information</h2>
         <div>

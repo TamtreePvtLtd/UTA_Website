@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 interface ClassData {
   _id?: string;
   name: string;
-  capacity: number;
 }
 
 interface ClassProps {
@@ -15,16 +14,11 @@ interface ClassProps {
 }
 
 export default function ClassForm({ existingClass, onClose, refreshClasses }: ClassProps) {
-  const [formData, setFormData] = useState<ClassData>({
-    name: '',
-    capacity: 0,
-  });
+  const [formData, setFormData] = useState<ClassData>({ name: '' });
 
   useEffect(() => {
     if (existingClass) {
-      setFormData(existingClass);
-    } else {
-      setFormData({ name: '', capacity: 0 });
+      setFormData({ name: existingClass.name });
     }
   }, [existingClass]);
 
@@ -32,7 +26,7 @@ export default function ClassForm({ existingClass, onClose, refreshClasses }: Cl
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: name === 'capacity' ? Number(value) : value,
+      [name]: value,
     }));
   };
 
@@ -64,7 +58,7 @@ export default function ClassForm({ existingClass, onClose, refreshClasses }: Cl
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-4">
+        <div className="flex justify-between flex-wrap gap-4">
           <label className="block font-medium">Grade:</label>
           <input
             type="text"
@@ -74,20 +68,6 @@ export default function ClassForm({ existingClass, onClose, refreshClasses }: Cl
             required
             className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
             placeholder="Enter Class name"
-          />
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <label className="block font-medium">Capacity:</label>
-          <input
-            type="number"
-            name="capacity"
-            value={formData.capacity}
-            onChange={handleChange}
-            required
-            min={1}
-            className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
-            placeholder="Enter capacity"
           />
         </div>
 

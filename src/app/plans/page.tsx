@@ -42,7 +42,7 @@ const Plans = () => {
           Join Our Online Tamil Classes Today
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-white">
-          Choose a subscription that fits your learning journey. Enjoy live classes, activities.
+          Choose a subscription that fits your learning journey. Enjoy live classes and engaging activities.
         </p>
       </div>
     </section>
@@ -50,10 +50,16 @@ const Plans = () => {
       {/* Subscription Plans */}
       <section className="py-16 px-6 md:px-12 bg-white">
         <h2 className="text-3xl font-bold text-center mb-4 text-secondary">Universal Tamil Academy – Subscription Plans</h2>
+        {/* <h4 className="text-lg font-bold italic text-center text-black mt-10">
+         Grade 1 to 4 (Basic), 5 & 6 (Intermediate), and 7 & 8 (Advanced) refer to the levels of Tamil language learning,<br /> not his/her school grade. For example, a 10 year-old is new to Tamil may start at Grade between 1 to 4 – Basic Tamil, <br />while a 12 year-old with Good Tamil language skill might start at Grade 5 or 6 – Intermediate Tamil.</h4> */}
         <h4 className="text-lg font-bold italic text-center text-black mt-10">
-         Grades 1 to 4 (Basic), 5 & 6 (Intermediate), and 7 & 8 (Advanced) refer to the levels of Tamil language learning,<br /> not his/her school grade. For example, a 10 year-old is new to Tamil may start at Grade between 1 to 4 – Basic Tamil, <br />while a 12 year-old with Good Tamil language skill might start at Grade 5 or 6 – Intermediate Tamil.</h4>
+          Grade 1 to 4 (Basic), 5 & 6 (Intermediate), and 7 & 8 (Advanced) refer to the levels of Tamil language learning,
+          <br /> not the student’s school grade. For example, a 10-year-old new to Tamil may start at Grade 1–4 (Basic Tamil),
+          <br /> while a 12-year-old with good Tamil language skills might start at Grade 5 or 6 (Intermediate Tamil).
+        </h4>
         <h5 className="text-lg font-bold italic text-center text-black mt-5 mb-5">
-           * Tamil Grade is assigned by teacher after free trial session, based on the Tamil Grade you can choose the subscription plan.</h5>
+          * Tamil grade is assigned by the teacher after the free trial session. Based on the Tamil grade, you can choose your subscription plan.
+        </h5>
         <div className="flex justify-center mb-12">
           <div className="bg-white shadow-md font-bold rounded-full p-1 flex">
             <button
@@ -148,7 +154,7 @@ const Plans = () => {
     <h1 className="text-3xl md:text-4xl font-bold mb-4 text-secondary">
            Universal Tamil Academy</h1>
   <p className="max-w-3xl mx-auto text-lg mb-12 text-black">
-    At UTA, we make Tamil learning engaging, fun, and effective for children worldwide. 
+    At UTA, we make Tamil learning engaging, fun, and effective for children around the world. 
     Our structured curriculum and interactive online classes ensure that kids not only learn the language, 
     but also connect deeply with Tamil culture and values.
   </p>
@@ -164,7 +170,7 @@ const Plans = () => {
     <div className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition transform border border-gray-100">
       <h3 className="text-xl font-semibold mb-2 text-secondary">🌎 Global Community</h3>
       <p className="text-lg text-black">
-        Students from the USA, Canada, UK, Australia, and beyond learning together.
+        Students from across the United States, Canada, and many other countries learn together in our classes.
       </p>
     </div>
 
@@ -178,7 +184,7 @@ const Plans = () => {
     <div className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transition transform border border-gray-100">
       <h3 className="text-xl font-semibold mb-2 text-secondary">👩‍🏫 Expert Teachers</h3>
       <p className="text-lg text-black">
-        Experienced educators passionate about teaching Tamil to kids in a joyful way.
+        Experienced educators passionate about teaching Tamil to children in a joyful and engaging way.
       </p>
     </div>
   </div>

@@ -10,12 +10,10 @@ import Pagination from '@/components/pagination';
 type Class = {
   _id: string;
   name: string;
-  capacity: number;
 };
 
 const columns = [
   { header: "Grade", accessor: "name", className: "py-2 px-3" },
-  { header: "Capacity", accessor: "capacity", className: "py-2 px-3 hidden md:table-cell" },
   { header: "Actions", accessor: "actions", className: "py-2 px-3" },
 ];
 
@@ -81,7 +79,6 @@ const ClassesListPage = () => {
       className="text-left text-gray-500 text-md even:bg-slate-50 hover:bg-purple-100"
     >
       <td className="py-3 px-3">{cls.name}</td>
-      <td className="py-3 px-3 hidden md:table-cell">{cls.capacity}</td>
       <td className="py-3 px-3 whitespace-nowrap">
         <div className="flex flex-wrap md:flex-nowrap items-center gap-2">
           <button

@@ -19,8 +19,7 @@ const HistoryPage = () => {
           Our Journey: Spreading Tamil Across the Globe
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-white">
-          From humble beginnings to a worldwide movement, discover how Tamil Online Classes connected thousands of
-          international students to their heritage.
+          From humble beginnings to a global movement, discover how Tamil Online Classes has connected thousands of international students with their heritage.
         </p>
       </div>
     </section>
@@ -33,7 +32,7 @@ const HistoryPage = () => {
           </h2>
           <p className="text-lg text-black leading-relaxed mb-10">
             At Universal Tamil Academy (UTA), we are dedicated to nurturing a love for the Tamil language among children and young learners across the globe. 
-            Our online classes are designed to help students not just learn Tamil, but to truly Listen, Speak, Read and Write it with confidence.  
+            Our online classes are designed to help students not just learn Tamil, but truly listen, speak, read, and write it with confidence.
           </p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8"> 
           <div className="bg-white rounded-2xl shadow hover:shadow-lg transition border border-gray-100 overflow-hidden">
@@ -64,7 +63,7 @@ const HistoryPage = () => {
             </div>
             <div className="p-6">
               <p className="text-black text-lg">
-                Step by step, learners get familiar with Tamil script, letters, and words, progressing into reading stories and passages.
+                Step by step, learners become familiar with Tamil script, letters, and words, gradually progressing to reading stories and passages.
               </p>
             </div>
           </div>
@@ -84,7 +83,7 @@ const HistoryPage = () => {
       </section>
 
       {/* Milestones Section */}
-      <section className="py-1 px-6 md:px-16 bg-white relative">
+      <section className="py-1 px-6 md:px-16 mb-12 bg-white relative">
         <h2 className="text-3xl font-bold text-center mb-16 text-secondary">
           Milestones in Our Journey
         </h2>
@@ -121,7 +120,7 @@ const HistoryPage = () => {
           <div className="bg-amber-100 p-8 rounded-xl shadow hover:shadow-lg transition border border-gray-100">
             <h3 className="text-xl font-semibold mb-3 text-secondary">Celebrating Tamil Beyond the Classroom</h3>
             <p className="text-black leading-relaxed">
-              At UTA, Tamil is not just taught – it is lived. 
+              At UTA, Tamil is not just taught – it's lived. 
               Our cultural programs, storytelling competitions, and festival celebrations 
               bring children closer to traditions while making learning lively and memorable.
             </p>
@@ -132,14 +131,14 @@ const HistoryPage = () => {
             <p className="text-black leading-relaxed">
               The journey has just begun. With innovative tools, passionate teachers, and 
               a growing global family, Universal Tamil Academy is committed to shaping the 
-              next generation of proud Tamil Speaking children around the world.
+              next generation of proud Tamil-speaking children around the world.
             </p>
           </div>
         </div>
       </section>
 
       {/* Global Reach */}
-      <section className="bg-white py-16 px-6 md:px-12">
+      {/* <section className="bg-white py-16 px-6 md:px-12">
         <h2 className="text-3xl font-bold text-center mb-12 text-secondary">UTA Community</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div className="bg-white p-6 rounded-lg shadow border border-gray-100">
@@ -155,7 +154,7 @@ const HistoryPage = () => {
             <p className="mt-2 text-black">Our native Tamil Speaking faculty bring deep cultural insights to every lesson.</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
       <ScrollToTop />

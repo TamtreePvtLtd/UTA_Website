@@ -77,11 +77,11 @@ const LandingPage = () => {
                   <h3 className="text-3xl font-bold text-secondary mb-4">The Language Importance</h3>
                   <p className="text-black text-lg mb-4">
                     Tamil is one of the longest-surviving classical languages in the world, with a history dating back over 2,000 years. 
-                    It is recognized as one of the oldest languages still in use today. UNESCO has declared Tamil as a classical language, acknowledging its rich heritage and independent tradition.
+                    It is recognized as one of the oldest languages still in use today. UNESCO has declared Tamil a classical language, acknowledging its rich heritage and independent tradition.
                   </p>
                   <p className="text-black text-lg mb-4">
                     The Tamil language has influenced many other languages and cultures across Southeast Asia. 
-                    Its grammatical structure, described in the Tolkappiyam (3rd century BCE), is one of the most 
+                    it's grammatical structure, described in the Tolkappiyam (3rd century BCE), is one of the most 
                     comprehensive and scientific grammatical systems of any language.
                   </p>
                   <p className="text-black text-lg">
@@ -314,7 +314,7 @@ const LandingPage = () => {
               },
               {
                 level: 'Customized',
-                description: 'Tailored to your specific goals and requirement',
+                description: 'Tailored to your specific goals and requirements',
                 features: ['Personalized curriculum', 'Specialized vocabulary', 'Flexible scheduling', 'One-on-one attention'],
                 color: 'from-amber-50 to-amber-50'
               }
@@ -350,14 +350,14 @@ const LandingPage = () => {
               <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
                 <h3 className="text-2xl font-bold text-secondary mb-4">Why Choose Universal Tamil Academy?</h3>
                 <p className="text-black text-lg mb-4">
-                  Learning Tamil with us is more than just a language course — it's an inspiring journey into a rich culture, guided by experienced educators who care about your progress.
+                 Learning Tamil with us is more than just a language course — it’s an inspiring journey into a rich culture, guided by passionate educators who truly care about your progress.
                 </p>
                 <ul className="list-disc pl-5 text-black text-lg">
                   <li>Expert Tamil instructors with global teaching experience</li>
                   <li>Dynamic online classes that keep you motivated</li>
                   <li>Step-by-step learning from alphabets to fluent expression</li>
                   <li>Discover Tamil heritage through stories, arts, and traditions</li>
-                  <li>Study at your own space with flexible learning plans</li>
+                  <li>Study at your own pace with flexible learning plans</li>
                 </ul>
               </div>
             </div>
@@ -366,7 +366,7 @@ const LandingPage = () => {
               <div className="bg-gradient-to-r from-white to-white text-black p-8 rounded-xl shadow-lg">
                 <h3 className="text-2xl font-bold text-secondary mb-4 ">Our Unique Approach</h3>
                 <p className="mb-4 text-lg">
-                  We blend the beauty of traditional Tamil teaching with modern, interactive methods to ensure an enjoyable and effective learning experience:
+                 We blend the beauty of traditional Tamil teaching with modern interactive methods to create an enjoyable and effective learning experience.
                 </p>
                 <ul className="list-disc text-lg pl-5">
                   <li>Storytelling and role-play to make lessons memorable</li>
@@ -383,7 +383,7 @@ const LandingPage = () => {
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-amber-50 to-amber-50 text-black p-8 rounded-2xl text-center mt-4">
           <h2 className="text-3xl font-bold mb-4 ">Start Learning Tamil Today!</h2>
-          <p className="text-xl mb-6 max-w-2xl mx-auto">Join thousands of students who have successfully learned Tamil with our proven methods</p>
+          <p className="text-xl mb-6 max-w-2xl mx-auto">Join us and start your journey to learn Tamil with our proven methods</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button onClick={goToRegister}
               className="bg-primary hover:bg-white transition text-white hover:text-secondary px-10 py-3 rounded-full font-bold text-lg" >
@@ -397,14 +397,14 @@ const LandingPage = () => {
       </main>
       
       {/* Testimonials Section */}
-      <section className="bg-white py-12 px-6 md:px-12">
+      {/* <section className="bg-white py-12 px-6 md:px-12">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12">
             Parent Testimonials
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {/* Testimonial 1 */}
+          
             <div className="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform border border-gray-100">
               <p className="text-black mb-4 italic">
                 "My son had no prior knowledge of Tamil, but after joining UTA he can now speak and write confidently. The teachers are so patient and encouraging."
@@ -422,7 +422,6 @@ const LandingPage = () => {
               </div>
             </div>
 
-            {/* Testimonial 2 */}
             <div className="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform border border-gray-100">
               <p className="text-black mb-4 italic">
                 "We live abroad and always worried about our kids forgetting Tamil. Thanks to UTA, my daughter enjoys learning and speaks Tamil with her grandparents now."
@@ -440,7 +439,6 @@ const LandingPage = () => {
               </div>
             </div>
 
-            {/* Testimonial 3 */}
             <div className="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform border border-gray-100">
               <p className="text-black mb-4 italic">
                 "Universal Tamil Academy interactive classes make Tamil fun. My kids look forward to every class, and I can see their confidence growing each week."
@@ -458,7 +456,6 @@ const LandingPage = () => {
               </div>
             </div>
 
-            {/* Testimonial 4 */}
             <div className="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform border border-gray-100">
               <p className="text-black mb-4 italic">
                 "I appreciate how flexible Universal Tamil Academy is with timings. The teachers are very supportive and the lessons are structured to suit different levels of learners."
@@ -477,7 +474,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       
       <Footer />
       <ScrollToTop />
