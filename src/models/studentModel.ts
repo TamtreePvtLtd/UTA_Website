@@ -81,7 +81,7 @@ const studentSchema = new mongoose.Schema<StudentInterface>(
     paymentHistory: [paymentDetailsSchema],
     teacher: { type: mongoose.Schema.Types.ObjectId, ref: "Teacher" },
     profileStatus: { type: String, enum: ["enrolled", "deEnrolled"], default: "enrolled" },
-    enrollmentCategory: { type: String, enum: ["initialCall", "statusCheck", "continue", "hold", "followUp", "inActive"], default: "statusCheck" },
+    enrollmentCategory: { type: String, enum: ["initialCall", "statusCheck", "continue", "hold", "followUp", "inActive"], default: "initialCall" },
   },
   { timestamps: true }
 );

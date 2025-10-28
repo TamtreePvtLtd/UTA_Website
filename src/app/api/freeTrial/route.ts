@@ -6,12 +6,13 @@ import FreeTrial from '@/models/freeTrialModel';
 
 export async function GET(req: NextRequest) {
   try {
-    const email = req.nextUrl.searchParams.get('email');
-    if (!email) return NextResponse.json({ error: 'Missing parent email' }, { status: 400 });
+    const studentId = req.nextUrl.searchParams.get('studentId');
+    if (!studentId) return NextResponse.json({ error: 'Missing studentId' }, { status: 400 });
 
     await connectMongoDB();
-    const exists = await FreeTrial.exists({ parentEmail: email });
+    const exists = await FreeTrial.exists({ studentId });
     return NextResponse.json({ used: !!exists });
+
   } catch (error) {
     return NextResponse.json({ error: 'GET failed', details: error }, { status: 500 });
   }
@@ -26,23 +27,28 @@ export async function POST(req: Request) {
 
     await connectMongoDB();
 
-    const parent = await Parent.findById(parentId).lean() as unknown as { email: string; _id: string };
-    if (!parent || !parent.email) {
+    const parent = await Parent.findById(parentId);
+    if (!parent) {
       return NextResponse.json({ error: 'Parent not found' }, { status: 404 });
     }
 
-    const hasUsed = await FreeTrial.exists({ parentEmail: parent.email });
-    if (hasUsed) {
-      return NextResponse.json({ error: 'Free trial already used' }, { status: 403 });
+    // Ensure student belongs to this parent
+    const match = await Student.exists({ _id: studentId, parent: parent._id });
+    if (!match) {
+      return NextResponse.json({ error: 'Student mismatch' }, { status: 403 });
     }
 
-    const match = await Student.exists({ _id: studentId, parent: parent._id });
-    if (!match) return NextResponse.json({ error: 'Student mismatch' }, { status: 403 });
+    // Check if this student already booked a trial
+    const hasUsed = await FreeTrial.exists({ studentId });
+    if (hasUsed) {
+      return NextResponse.json({ error: 'Student already used free trial' }, { status: 403 });
+    }
 
-    const trial = new FreeTrial({ parentEmail: parent.email, studentId });
+    const trial = new FreeTrial({ parentId, studentId });
     await trial.save();
 
-    return NextResponse.json({ message: 'Free trial booked!' });
+    return NextResponse.json({ message: 'Free trial booked!' }, { status: 200 });
+
   } catch (error) {
     return NextResponse.json({ error: 'POST failed', details: error }, { status: 500 });
   }

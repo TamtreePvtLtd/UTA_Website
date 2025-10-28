@@ -54,7 +54,7 @@ const Plans = () => {
          Grade 1 to 4 (Basic), 5 & 6 (Intermediate), and 7 & 8 (Advanced) refer to the levels of Tamil language learning,<br /> not his/her school grade. For example, a 10 year-old is new to Tamil may start at Grade between 1 to 4 – Basic Tamil, <br />while a 12 year-old with Good Tamil language skill might start at Grade 5 or 6 – Intermediate Tamil.</h4> */}
         <h4 className="text-lg font-bold italic text-center text-black mt-10">
           Grade 1 to 4 (Basic), 5 & 6 (Intermediate), and 7 & 8 (Advanced) refer to the levels of Tamil language learning,
-          <br /> not the student’s school grade. For example, a 10-year-old new to Tamil may start at Grade 1–4 (Basic Tamil),
+          <br /> not the student’s school grade. For example, a 10-year-old new to Tamil might start at Grade 1–4 (Basic Tamil),
           <br /> while a 12-year-old with good Tamil language skills might start at Grade 5 or 6 (Intermediate Tamil).
         </h4>
         <h5 className="text-lg font-bold italic text-center text-black mt-5 mb-5">

@@ -28,7 +28,7 @@ const FreeTrialPage = () => {
         const parentRes = await fetch(`/api/parents/${parentId}`);
         const parent = await parentRes.json();
 
-        const trialRes = await fetch(`/api/freeTrial?email=${parent.email}`);
+        const trialRes = await fetch(`/api/freeTrial?studentId=${selectedStudent}`);
         const trialData = await trialRes.json();
         setUsed(trialData.used);
       } catch (err) {
