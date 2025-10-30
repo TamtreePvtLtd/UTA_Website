@@ -8,10 +8,7 @@ interface Announcement {
   title: string;
   description: string;
   date: string;
-  class: {
-    _id: string;
-    name: string;
-  };
+  class: { _id: string, name: string }[];
 }
 interface Class {
   _id: string;
@@ -25,7 +22,7 @@ const AnnouncementPage = () => {
     title: '',
     description: '',
     date: '',
-    classId: ''
+    classId: [] as string[],
   });
 
   useEffect(() => {
@@ -40,13 +37,9 @@ const AnnouncementPage = () => {
   };
 
   const fetchClasses = async () => {
-    try {
-      const res = await fetch('/api/classes');
-      const json = await res.json();
-      if (Array.isArray(json)) setClasses(json);
-    } catch (error) {
-      console.error("Failed to fetch classes", error);
-    }
+    const res = await fetch('/api/classes');
+    const json = await res.json();
+    if (Array.isArray(json)) setClasses(json);
   };
 
   const handlePost = async (e: React.FormEvent) => {
@@ -61,7 +54,7 @@ const AnnouncementPage = () => {
     const json = await res.json();
     if (json.success) {
       toast.success("Announcement posted successfully");
-      setFormData({ title: '', description: '', date: '', classId: '' });
+      setFormData({ title: '', description: '', date: '', classId: [] });
       fetchAnnouncements();
     } else {
       toast.error("Failed to post: " + json.error);
@@ -99,37 +92,47 @@ const AnnouncementPage = () => {
           placeholder="Title"
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm mb-5"
+          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-md mb-5"
           required
         />
+
         <textarea
           placeholder="Description"
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm mb-5"
+          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-md mb-5"
           required
         />
+
         <input
           type="date"
           value={formData.date}
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm mb-5"
+          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-md mb-5"
           required
         />
+
+        {/* Multiple Class Selector */}
         <select
+          multiple
           value={formData.classId}
-          onChange={(e) => setFormData({ ...formData, classId: e.target.value })}
-          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm mb-5"
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              classId: Array.from(e.target.selectedOptions, opt => opt.value),
+            })
+          }
+          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md h-32"
           required
         >
-          <option value="">Select Class</option>
           {classes.map(cls => (
             <option key={cls._id} value={cls._id}>
               {cls.name}
             </option>
           ))}
         </select>
-        <button type="submit" className="bg-primary hover:bg-transparent border border-primary hover:text-primary text-white transition px-4 py-1 rounded-md">
+
+        <button type="submit" className="bg-primary hover:bg-transparent border border-primary hover:text-primary text-white transition px-4 py-1 mt-8 rounded-md">
           Post Announcement
         </button>
       </form>
@@ -151,7 +154,7 @@ const AnnouncementPage = () => {
               <h2 className="text-xl font-semibold text-red-600">{ann.title}</h2>
               <p className="text-gray-700">{ann.description}</p>
               <p className="text-sm mt-2 text-gray-500">Date: {new Date(ann.date).toLocaleDateString()}</p>
-              <p className="text-sm text-gray-500">Class: {ann.class?.name}</p>
+              <p className="text-sm text-gray-500">Classes: {ann.class?.map(c => c.name).join(", ") || "-"}</p>
             </li>
           ))}
         </ul>
