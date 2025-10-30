@@ -76,7 +76,7 @@ const FreeTrialPage = () => {
         <p className="bg-white rounded-md flex-1 m-4 mt-0 p-1 sm:p-2 md:p-3 lg:p-4">You have no children. Please add one to proceed.</p>
         <button
           onClick={handleOpen}
-          className="px-4 py-2 bg-blue-500 hover:bg-bl-600 text-white rounded-md mt-4"
+          className="px-4 py-2 bg-primary hover:bg-amber-600 text-white rounded-md mt-4"
         >
           + Add Child
         </button>
@@ -101,7 +101,7 @@ const FreeTrialPage = () => {
         </select>
         <button
           onClick={handleBook}
-          className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md mt-4"
+          className="px-4 py-2 bg-primary hover:bg-amber-600 text-white rounded-md mt-4"
           disabled={used === true}
         >
           Book Free Trial

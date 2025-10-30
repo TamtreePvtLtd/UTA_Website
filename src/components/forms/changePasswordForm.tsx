@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function ChangePasswordForm() {
   const [password, setPassword] = useState('');
@@ -11,6 +12,7 @@ export default function ChangePasswordForm() {
   const [token, setToken] = useState<string | null>(null);
   const searchParams = useSearchParams();
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   useEffect(() => {
     const t = searchParams.get('token');
@@ -89,42 +91,54 @@ export default function ChangePasswordForm() {
 
         {/* Right Form Section (40%) */}
         <div className="w-full md:w-[40%] flex flex-col justify-center px-8 py-12 bg-white">
-          <form onSubmit={handleSubmit} className="w-full space-y-6 max-w-md">
+          <form onSubmit={handleSubmit} className="max-w-md w-full mx-auto space-y-6">
             <div className="font-bold text-neutral-800 flex flex-col space-y-2">    
               <h3 className="text-black font-bold text-3xl">RESET PASSWORD</h3>
               <p className="text-md text-neutral-400">Enter your new password below</p>
             </div>
 
             {/* New Password */}
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col w-full">
               <label htmlFor="password" className="text-sm font-medium text-gray-700">
                 New Password
               </label>
+              <div className="relative w-full">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
-                placeholder="••••••••"
+                placeholder="Enter New Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:bg-gray-50 text-md placeholder-gray-600"
+                className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:bg-gray-50 text-md"
                 required
               />
+              <span onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600">
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
+          </div>
 
             {/* Confirm Password */}
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col w-full">
               <label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">
                 Confirm Password
               </label>
+              <div className="relative w-full">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="confirmPassword"
-                placeholder="••••••••"
+                placeholder="Re-enter New Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:bg-gray-50 text-md placeholder-gray-600"
+                className="block w-full px-3 py-3 mt-1 border rounded-lg border-gray-400 focus:outline-none focus:bg-gray-50 text-md"
                 required
               />
+              <span onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600">
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
             </div>
 
             <button

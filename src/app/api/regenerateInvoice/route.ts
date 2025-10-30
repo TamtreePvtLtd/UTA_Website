@@ -86,13 +86,26 @@ export async function POST(req: NextRequest) {
     // Header with gradient effect
     page.drawRectangle({
       x: 0,
-      y: height - 120,
+      y: height - 125,
       width: width,
-      height: 120,
+      height: 125,
       color: primaryColor,
     });
+
+    const logoPath = path.join(process.cwd(), "public", "utalogo.jpg");
+    const logoImageBytes = fs.readFileSync(logoPath);
+    const logoImage = await pdfDoc.embedJpg(logoImageBytes);
+
+    const logoWidth = 60;
+    const logoHeight = (logoImage.height / logoImage.width) * logoWidth;
+
+    page.drawImage(logoImage, {
+      x: 50,
+      y: height - 104,
+      width: logoWidth,
+      height: logoHeight
+    });
     
-    // Logo/Company name
     page.drawText("UNIVERSAL TAMIL ACADEMY", {
       x: 50,
       y: height - 60,
@@ -101,25 +114,24 @@ export async function POST(req: NextRequest) {
       color: white,
     });
     
-    page.drawText("Empowering Tamil Language Education Worldwide", {
-      x: 50,
+    page.drawText("Empowering Tamil Language to Worldwide", {
+      x: 130,
       y: height - 85,
       size: 10,
       font: font,
       color: white,
     });
     
-    // Website and address (removed emoji to fix encoding error)
-    page.drawText("www.universaltamilacademy.org", {
-      x: 50,
+    page.drawText("www.universaltamilacademy.com", {
+      x: 130,
       y: height - 100,
       size: 9,
       font: font,
       color: white,
     });
     
-    page.drawText("Tamtree India Private Limited, Paramathi-Velur, Tamil Nadu", {
-      x: 50,
+    page.drawText("Texas, United States of America", {
+      x: 130,
       y: height - 112,
       size: 9,
       font: font,
@@ -143,14 +155,6 @@ export async function POST(req: NextRequest) {
       size: 16,
       font: boldFont,
       color: primaryColor,
-    });
-    
-    // Separator line
-    page.drawLine({
-      start: { x: 50, y: height - 130 },
-      end: { x: width - 50, y: height - 130 },
-      thickness: 1,
-      color: mediumGray,
     });
     
     // Billed to section
