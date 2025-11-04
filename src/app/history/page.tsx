@@ -16,7 +16,7 @@ const HistoryPage = () => {
       <div className="absolute inset-0 bg-opacity-50"></div>
       <div className="relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Our Journey: Spreading Tamil Across the Globe
+          Spreading Tamil Across the Globe
         </h1>
         <p className="max-w-3xl mx-auto text-lg text-white">
           From humble beginnings to a global movement, discover how Tamil Online Classes has connected thousands of international students with their heritage.
@@ -31,8 +31,9 @@ const HistoryPage = () => {
             About <span className="text-secondary">Universal Tamil Academy</span>
           </h2>
           <p className="text-lg text-black leading-relaxed mb-10">
-            At Universal Tamil Academy (UTA), we are dedicated to nurturing a love for the Tamil language among children and young learners across the globe. 
-            Our online classes are designed to help students not just learn Tamil, but truly listen, speak, read, and write it with confidence.
+            Universal Tamil Academy (UTA), we are dedicated to nurturing a love for the Tamil language among students, adults and beginners across the globe. 
+            Our live online classes are designed to help students not just learn Tamil, but truly listening, speaking, reading and writing with a structured curriculum for
+            international learners. Whether you want to communicate with family, improve cultural connection or master Tamil language — here we have to help you.
           </p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8"> 
           <div className="bg-white rounded-2xl shadow hover:shadow-lg transition border border-gray-100 overflow-hidden">

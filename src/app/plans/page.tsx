@@ -64,7 +64,7 @@ const Plans = () => {
           <div className="bg-white shadow-md font-bold rounded-full p-1 flex">
             <button
               onClick={() => setBillingCycle("freeTrial")}
-              className={`px-6 py-2 rounded-full font-large transition ${
+              className={`px-6 py-2 rounded-full font-large transition cursor-pointer ${
                 billingCycle === "freeTrial"
                   ? "bg-primary text-white"
                   : "text-secondary hover:text-black"
@@ -74,7 +74,7 @@ const Plans = () => {
             </button>
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-6 py-2 rounded-full font-large transition ${
+              className={`px-6 py-2 rounded-full font-large transition cursor-pointer ${
                 billingCycle === "monthly"
                   ? "bg-primary text-white"
                   : "text-secondary hover:text-black"
@@ -84,7 +84,7 @@ const Plans = () => {
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`px-6 py-2 rounded-full font-large transition ${
+              className={`px-6 py-2 rounded-full font-large transition cursor-pointer ${
                 billingCycle === "yearly"
                   ? "bg-primary text-white"
                   : "text-secondary hover:text-black"
@@ -141,7 +141,7 @@ const Plans = () => {
               </p>
               )}
               <Link href="/register">
-                <button className="w-full bg-primary hover:bg-amber-600 text-white py-2 rounded transition">
+                <button className="w-full bg-primary hover:bg-amber-600 text-white py-2 rounded transition cursor-pointer">
                   {plan.value === "freeTrial" ? "Start Free Trial" : "Get Started"}
                 </button>
               </Link>

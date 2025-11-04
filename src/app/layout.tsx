@@ -20,11 +20,53 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Universal Tamil Academy",
+  title: "Universal Tamil Academy | Learn Tamil Online",
   icons: {
     icon: "/utalogo.jpg",
   },
-  description: "Universal Tamil Academy"
+  description:
+    "Universal Tamil Academy provides online Tamil classes for kids, adults, and beginners. Live Tamil speaking, reading & writing courses. Try a free Tamil class!",
+  keywords: [
+    "Tamil online classes",
+    "Learn Tamil online",
+    "Tamil for kids",
+    "Tamil language course",
+    "Tamil speaking classes",
+    "Tamil academy",
+    "Online Tamil school", 
+    "Tamil classes for adults",
+    "Tamil learning for beginners",
+    "Tamil tutoring online",
+  ],
+  authors: [{ name: "Universal Tamil Academy" }],
+  viewport: "width=device-width, initial-scale=1.0",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: "https://universaltamilacademy.com",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://universaltamilacademy.com",
+    title: "Universal Tamil Academy | Learn Tamil Online",
+    description:
+      "Join Universal Tamil Academy to learn Tamil through live interactive classes. Courses for kids, beginners, and adults. Take your Tamil speaking to the next level!",
+    siteName: "Universal Tamil Academy",
+    images: [
+      {
+        url: "/utalogo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Universal Tamil Academy Logo",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({

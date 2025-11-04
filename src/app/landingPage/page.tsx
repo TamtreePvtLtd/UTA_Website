@@ -44,7 +44,7 @@ const LandingPage = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-full text-sm md:text-base font-bold transition-colors ${activeTab === tab.id 
+                className={`px-4 py-2 rounded-full text-sm md:text-base font-bold transition-colors cursor-pointer ${activeTab === tab.id 
                   ? 'bg-primary text-white' 
                   : 'bg-amber-100 text-secondary hover:bg-amber-200'
                 }`}
@@ -70,7 +70,7 @@ const LandingPage = () => {
                     alt="Tamil Language Heritage"
                     width={500}
                     height={350}
-                    className="rounded-lg shadow-lg"
+                    className="rounded-lg shadow-lg object-cover aspect-[4/3] w-full"
                   />
                 </div>
                 <div className="md:w-1/2">
@@ -81,7 +81,7 @@ const LandingPage = () => {
                   </p>
                   <p className="text-black text-lg mb-4">
                     The Tamil language has influenced many other languages and cultures across Southeast Asia. 
-                    it's grammatical structure, described in the Tolkappiyam (3rd century BCE), is one of the most 
+                    It's grammatical structure, described in the Tholkappiyam (3rd century BCE), is one of the most 
                     comprehensive and scientific grammatical systems of any language.
                   </p>
                   <p className="text-black text-lg">
@@ -124,7 +124,7 @@ const LandingPage = () => {
                 <div className="md:w-1/2 order-2 md:order-1">
                   <h3 className="text-3xl font-bold text-secondary mb-4">Medicine & Surgery</h3>
                   <p className="text-black text-lg mb-4">
-                    Ancient Tamils had advanced knowledge of medicine, as documented in texts like the "Tholkappiyam" and "Agathiyar Suvai." 
+                    Ancient Tamil had advanced knowledge of medicine, as documented in texts like the "Tholkappiyam" and "Agathiyar Suvai." 
                     Siddha medicine, one of India's oldest traditional medicine systems, originated in Tamil Nadu.
                     </p>
                   <p className="text-black text-lg">
@@ -138,7 +138,7 @@ const LandingPage = () => {
                     alt="Ancient Tamil Medicine"
                     width={500}
                     height={350}
-                    className="rounded-lg shadow-lg"
+                    className="rounded-lg shadow-lg object-cover aspect-[4/3] w-full"
                   />
                 </div>
               </div>
@@ -186,7 +186,7 @@ const LandingPage = () => {
                     alt="Siddha Medicine"
                     width={500}
                     height={350}
-                    className="rounded-lg shadow-lg"
+                    className="rounded-lg shadow-lg object-cover aspect-[4/3] w-full"
                   />
                 </div>
                 <div className="md:w-1/2">
@@ -213,8 +213,8 @@ const LandingPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                 {[
                   { title: 'Medicinal Herbs', desc: 'Medicinal herbs have been an integral part of traditional Tamil life. They are used not only in medicine but also in daily cooking to enhance flavor and promote health.' },
-                  { title: 'Nutritious Grains', desc: 'Nutritious whole grains and millets have been staples of the Tamil diet for centuries. Varieties like foxtail millet, pearl millet, finger millet, protein, and minerals.' },
-                  { title: 'Balanced Diet', desc: 'A balanced diet ensures the body receives all essential nutrients in the right proportion. It includes cereals, pulses, vegetables, fruits, dairy, and moderate fats.' }
+                  { title: 'Nutritious Grains', desc: 'Nutritious whole grains and millets have been staples of the Tamil diet for centuries. Varieties like foxtail millet, pearl millet, and finger millet support overall health.' },
+                  { title: 'Balanced Diet', desc: 'A balanced diet ensures the body receives all essential nutrients in the right proportion. It includes rice, pulses, vegetables, fruits, dairy, and moderate fats.' }
                 ].map((item, index) => (
                   <div key={index} className="bg-white p-4 rounded-lg shadow border border-gray-100">
                     <h4 className="font-bold text-secondary  text-xl">{item.title}</h4>
@@ -254,7 +254,7 @@ const LandingPage = () => {
                     alt="Tamil Traditions"
                     width={500}
                     height={350}
-                    className="rounded-lg shadow-lg"
+                    className="rounded-lg shadow-lg object-cover aspect-[4/3] w-full"
                   />
                 </div>
               </div>
@@ -332,7 +332,7 @@ const LandingPage = () => {
                   </ul>
                   <div className="flex justify-center">
                   <button onClick={goToPlans}
-                    className="mt-4 bg-primary text-white text-lg px-14 py-2 rounded-full hover:bg-amber-600 transition" >
+                    className="mt-4 bg-primary text-white text-lg px-14 py-2 rounded-full hover:bg-amber-600 active:scale-95 hover:shadow-lg transition cursor-pointer" >
                     Learn More
                   </button></div>
                 </div>
@@ -386,11 +386,12 @@ const LandingPage = () => {
           <p className="text-xl mb-6 max-w-2xl mx-auto">Join us and start your journey to learn Tamil with our proven methods</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button onClick={goToRegister}
-              className="bg-primary hover:bg-white transition text-white hover:text-secondary px-10 py-3 rounded-full font-bold text-lg" >
+              className="border-2 border-primary bg-primary hover:bg-white transition text-white hover:text-secondary px-10 py-3 rounded-full font-bold text-lg cursor-pointer" >
               Enroll Now
             </button>
-            <button onClick={goToLogin} className="border-2 border-primary px-6 py-3 rounded-full hover:bg-white font-bold hover:text-secondary transition text-lg">
-              Try Free Class
+            <button onClick={goToLogin} 
+               className="border-2 border-primary px-6 py-3 rounded-full font-bold transition text-lg cursor-pointer hover:bg-white hover:text-secondary hover:border-secondary">
+               Try Free Class
             </button>
           </div>
         </section>
