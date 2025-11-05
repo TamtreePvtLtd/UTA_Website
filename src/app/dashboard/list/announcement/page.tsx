@@ -108,9 +108,11 @@ const AnnouncementPage = () => {
           type="date"
           value={formData.date}
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-md mb-5"
+          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md text-md mb-6"
           required
         />
+         <span className="text-md text-gray-600 bold">
+          You can select multiple classes fot this Announcement</span>
 
         {/* Multiple Class Selector */}
         <select
@@ -122,7 +124,7 @@ const AnnouncementPage = () => {
               classId: Array.from(e.target.selectedOptions, opt => opt.value),
             })
           }
-          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md h-32"
+          className="w-full ring-[1.5px] ring-gray-300 p-2 rounded-md h-32 mt-5"
           required
         >
           {classes.map(cls => (

@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       studentId, 
       sessionType, 
       startMonth, 
-      startYear,  
+      startYear,  overrideAmount,
     } = body;
     
     if (!plan || !billingCycle || !parentId || !studentId) {
@@ -82,8 +82,8 @@ export async function POST(req: NextRequest) {
     if (sessionType === "1h") weeklySessions = 2;
     else if (sessionType === "30m") weeklySessions = 4;
     else if (sessionType === "40m") weeklySessions = 3;
-    
-    if (billingCycle === "monthly") {
+
+     if (billingCycle === "monthly") {
       if (startMonth === undefined || startYear === undefined) {
         return NextResponse.json(
           { success: false, message: "Start month and year are required for monthly billing" },
@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
       planEndDate = new Date(startYear, startMonth + 1, 0, 23, 59, 59, 999);
       sessionLimit = 4 * weeklySessions;
       const monthlyPrice = Number(selectedPlan.price);
-      const totalAmount = monthlyPrice;
+      const totalAmount = overrideAmount ? Number(overrideAmount) : monthlyPrice;
       paymentDetails = {
         monthlyPrice,
         sessions: sessionLimit,
@@ -147,8 +147,7 @@ export async function POST(req: NextRequest) {
     student.sessionUsed = 0;
     student.planStartDate = planStartDate;
     student.planEndDate = planEndDate;
-    
-    // Set payment status based on plan type
+
     if (billingCycle === "freeTrial") {
       student.paymentStatus = "not required";
     } else {

@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Table from '@/components/Table';
 import Pagination from '@/components/pagination';
-import TableSearch from '@/components/TableSearch';
 import Modal from '@/components/FormModal';
 import { useSession } from 'next-auth/react';
 import StudentForm from '@/components/forms/studentForm';
+import { useRouter } from 'next/navigation';
 
 export interface Parent {
    _id: string;
@@ -53,7 +53,8 @@ const StudentList = () => {
   const id = session?.user?.id;
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
-  
+  const router = useRouter();
+
     const totalPages = Math.ceil(students.length / rowsPerPage);
     const paginatedStudents = students.slice(
       (currentPage - 1) * rowsPerPage,
@@ -107,6 +108,10 @@ const fetchStudentsByTeacher = async () => {
     setIsModalOpen(true);
   };
 
+  const handleView = (student: Student) => {
+    router.push(`/dashboard/list/student/${student._id}`);
+  };
+
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this student?')) return;
     try {
@@ -137,9 +142,13 @@ const fetchStudentsByTeacher = async () => {
       <td className="py-3 hidden lg:table-cell"> {student.tamilGrade || "Not Assigned"}</td>
       <td className="py-3 whitespace-nowrap">
         <div className="flex flex-wrap md:flex-nowrap items-center gap-2">
-        {(userRole === 'Admin' || userRole === 'Parent' || userRole === 'Teacher') && (
+        {(userRole === 'Admin' || userRole === 'Teacher') && (
         <button onClick={() => handleEdit(student)} className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-400">
           <Image src="/update.png" alt="edit" width={14} height={14} />
+        </button>)}
+        {(userRole === 'Admin' || userRole === 'Teacher') && (
+        <button onClick={() => handleView(student)}  className="w-8 h-8 flex items-center justify-center rounded-full bg-green-400">
+          <Image src="/calendar.png" alt="edit" width={14} height={14} />
         </button>)}
         {(userRole === 'Admin' || userRole === 'Parent') && (
           <button onClick={() => handleDelete(student._id)} className="w-8 h-8 flex items-center justify-center rounded-full bg-red-400">

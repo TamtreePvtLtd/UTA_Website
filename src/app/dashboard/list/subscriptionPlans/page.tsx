@@ -42,6 +42,8 @@ const SubscriptionPlan = () => {
   const [startYear, setStartYear] = useState<number | undefined>(undefined); 
   const [showPaymentModal, setShowPaymentModal] = useState<boolean>(false);
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
+  const [allowCustomAmount, setAllowCustomAmount] = useState<boolean>(false);
+  const [customAmount, setCustomAmount] = useState<number | undefined>(undefined);
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [loadingPlans, setLoadingPlans] = useState<boolean>(true);
@@ -93,13 +95,14 @@ const SubscriptionPlan = () => {
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
 
-  // Show 6 months: 2 before, current, 3 ahead (clamped to month indexes 0..11)
-  const visibleMonths = months.filter(m => {
-    const diff = m.value - currentMonth;
-    return diff >= -2 && diff <= 3;
-  });
+  // Show 8 months: 3 before, current, 4 after
+  const visibleMonths = [];
+  for (let i = -3; i <= 4; i++) {
+    const monthIndex = (currentMonth + i + 12) % 12;
+    visibleMonths.push(months[monthIndex]);
+  }
 
-  const years = [currentYear, currentYear + 1, currentYear + 2];
+  const years = [currentYear - 1, currentYear, currentYear + 1, currentYear + 2];
 
  const handleSelectPlan = async (planValue: string) => {
     if (!planValue || !selectedStudent || !parentId) {
@@ -204,6 +207,7 @@ const SubscriptionPlan = () => {
           sessionType,
           startMonth,
           startYear,
+          overrideAmount: allowCustomAmount ? customAmount : undefined,
         }),
       });
       const data = await res.json();
@@ -211,7 +215,7 @@ const SubscriptionPlan = () => {
         setError(data.message || 'Failed to process payment.');
         return;
       }
-      const amount = data.paymentDetails.totalAmount;
+      const amount = allowCustomAmount ? customAmount : data.paymentDetails.totalAmount;
       router.push(`/dashboard/list/subscriptionPlans/payment?studentId=${selectedStudent}&amount=${amount}`);
     } catch (err) {
       console.error(err);
@@ -288,7 +292,7 @@ const SubscriptionPlan = () => {
               <select 
                 id="startMonth"
                 className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-md mb-5 max-w-full"
-                value={startMonth !== undefined ? startMonth : ""} 
+                value={startMonth ?? ""} 
                 onChange={(e) => setStartMonth(parseInt(e.target.value))} 
               >
                 <option value="" disabled hidden>-- Select Start Month --</option>
@@ -387,8 +391,26 @@ const SubscriptionPlan = () => {
                     <p><strong>End Date:</strong> {new Date(paymentDetails.planEndDate).toLocaleDateString()}</p>
                   </>
                 )}      
-                <div className="font-bold text-lg mt-4 border-t pt-3">
+                {/* <div className="font-bold text-lg mt-4 border-t pt-3">
                   Total Amount: ${Number(paymentDetails.totalAmount || 0).toFixed(2)}
+                </div> */}
+                {/* Allow custom editable price ONLY for Customized plan */}
+                {selectedPlan === "Customized" && (
+                  <div className="mt-4">
+                    <label className="flex items-center gap-2 text-md">
+                    <input type="checkbox" checked={allowCustomAmount}
+                      onChange={() => setAllowCustomAmount(!allowCustomAmount)}/>
+                    Edit Total Amount
+                    </label>
+
+                    {allowCustomAmount && (
+                      <input type="number" min={1} className="w-full mt-2 p-2 border rounded" placeholder="Enter custom amount"
+                        value={customAmount ?? ""} onChange={(e) => setCustomAmount(Number(e.target.value))}/>
+                    )}
+                  </div>
+                )}
+                <div className="font-bold text-lg mt-4 border-t pt-3">
+                  Total Amount: ${Number(allowCustomAmount ? customAmount : paymentDetails.totalAmount || 0).toFixed(2)}
                 </div>
               </div>
               <div className="flex justify-between gap-2 mt-4">

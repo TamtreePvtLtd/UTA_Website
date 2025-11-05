@@ -79,7 +79,7 @@ const ContactPage = () => {
                 </a>
               </li>
               <li>🕐 <strong>Working Days:</strong> All Seven Days 24/7</li>
-              <li>📍 <strong>Location:</strong> Texas, United States of America (USA)</li>
+              <li>📍 <strong>Location:</strong> Texas, USA</li>
             </ul>
           </div>
 

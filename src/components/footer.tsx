@@ -31,7 +31,7 @@ const Footer = () => {
       <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
       <p className="text-sm text-black">
         Email: universaltamilacademy@gmail.com<br />
-        Location: Texas, United States of America
+        Location: Texas, USA
       </p>
     </div>
 
