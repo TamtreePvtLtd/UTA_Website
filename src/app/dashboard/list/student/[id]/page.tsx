@@ -107,7 +107,7 @@ const StudentDetailsPage = () => {
 
   return (
     <div className="bg-white rounded-md flex-1 m-4 mt-0 p-4 shadow-sm">
-     <div className="flex justify-between mb-4">
+     <div className="flex items-center justify-between mb-6">
       <h1 className="text-2xl font-bold mb-6">Student Profile</h1>
         <button onClick={() => window.history.back()}
            className="mr-4 bg-primary hover:bg-transparent border border-primary text-lg hover:text-primary text-white transition py-1 px-5 rounded-md" >

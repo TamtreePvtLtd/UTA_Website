@@ -10,7 +10,7 @@ import { NextIntlClientProvider } from "next-intl";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], 
+  weight: ["400", "500", "700"],
   variable: "--font-roboto",
 });
 const openSans = Open_Sans({
@@ -20,6 +20,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.universaltamilacademy.com"),
   title: "Universal Tamil Academy | Learn Tamil Online",
   icons: {
     icon: "/utalogo.jpg",
@@ -33,13 +34,12 @@ export const metadata: Metadata = {
     "Tamil language course",
     "Tamil speaking classes",
     "Tamil academy",
-    "Online Tamil school", 
+    "Online Tamil school",
     "Tamil classes for adults",
     "Tamil learning for beginners",
     "Tamil tutoring online",
   ],
   authors: [{ name: "Universal Tamil Academy" }],
-  viewport: "width=device-width, initial-scale=1.0",
   robots: {
     index: true,
     follow: true,
@@ -49,11 +49,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://universaltamilacademy.com",
+    canonical: "https://www.universaltamilacademy.com",
   },
   openGraph: {
     type: "website",
-    url: "https://universaltamilacademy.com",
+    url: "https://www.universaltamilacademy.com",
     title: "Universal Tamil Academy | Learn Tamil Online",
     description:
       "Join Universal Tamil Academy to learn Tamil through live interactive classes. Courses for kids, beginners, and adults. Take your Tamil speaking to the next level!",
@@ -69,20 +69,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
-  children,
-}:  Readonly<{
+// Move viewport OUTSIDE metadata
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default async function RootLayout({ children }: {
   children: React.ReactNode;
-}>) {
+}) {
   const session = await getServerSession(authOptions);
 
   return (
     <html lang="en" className={`${roboto.variable} ${openSans.variable}`}>
       <body className="font-sans antialiased">
-        {/* <NextIntlClientProvider> */}
-          <AuthProvider session={session}>{children}</AuthProvider>
-          <Toaster position="top-right" reverseOrder={false} />
-        {/* </NextIntlClientProvider> */}
+        <AuthProvider session={session}>{children}</AuthProvider>
+        <Toaster position="top-right" reverseOrder={false} />
       </body>
     </html>
   );
